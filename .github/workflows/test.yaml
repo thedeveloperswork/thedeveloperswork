@@ -1,9 +1,7 @@
 name: test
 
 on:
-  pull_request:
-    branches: [ testing ]
-    # types: [ closed ]
+  workflow_dispatch:
 
 jobs:
   test:
