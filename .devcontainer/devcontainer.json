@@ -2,7 +2,7 @@
 	"name": "Node.js",
 	"image": "mcr.microsoft.com/devcontainers/javascript-node:dev-24-bullseye",
 	"forwardPorts": [
-		3000
+		5173
 	],
 	"customizations": {
 		"vscode": {
@@ -14,5 +14,7 @@
 		}
 	},
 	"postCreateCommand": "npm install",
+	"postStartCommand": "npm start",
+	"shutdownAction": "stopContainer",
 	"remoteUser": "node"
 }
