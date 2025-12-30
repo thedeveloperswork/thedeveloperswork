@@ -2,8 +2,7 @@ name: test
 
 on:
   pull_request:
-    branches: [ testing ]
-    types: [ closed ]
+    branches: [ master ]
 
 permissions:
   contents: read
