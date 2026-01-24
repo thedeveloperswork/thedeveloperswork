@@ -15,54 +15,11 @@
         }
 
         .resume-container {
-            width: 210mm;
-            min-height: 297mm;
-            margin: 40px auto;
+            width: 80%;
+            /* min-height: 297mm; */
+            margin: 10% auto;
             background: white;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Print Styles */
-        @media print {
-            @page {
-                size: A4;
-                margin: 0;
-            }
-
-            body {
-                background: white !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .resume-container {
-                width: 210mm !important;
-                min-height: 297mm !important;
-                margin: 0 !important;
-                padding: 12mm !important;
-                box-shadow: none !important;
-                overflow: visible !important;
-            }
-
-            .no-print,
-            .no-print *,
-            #print-btn-container {
-                display: none !important;
-                visibility: hidden !important;
-                height: 0 !important;
-                width: 0 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                opacity: 0 !important;
-                pointer-events: none !important;
-            }
-
-            a {
-                text-decoration: none !important;
-                color: inherit !important;
-            }
         }
 
         /* Color Variables */
@@ -76,30 +33,15 @@
 
 <body class="text-gray-700">
 
-    <!-- Floating Actions (Screen Only) -->
-    <div id="print-btn-container" class="fixed bottom-8 right-8 flex gap-4 no-print z-50">
-        <button onclick="window.print()"
-            class="bg-gray-800 hover:bg-gray-900 text-white p-4 rounded-full shadow-lg transition-all flex items-center gap-2 group">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9V2h12v7"></path>
-                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                <path d="M6 14h12v8H6z"></path>
-            </svg>
-            <span
-                class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">Print
-                / Save as PDF</span>
-        </button>
-    </div>
-
     <!-- Resume Page -->
-    <main class="resume-container flex flex-col p-8 md:p-12 relative overflow-hidden" id="resume" role="main">
+    <main class="resume-container flex flex-col p-8 md:p-12 relative" id="resume" role="main">
 
         <!-- Header Section -->
         <header class="text-center mb-6 border-b-2 border-teal-900/10 pb-6">
             <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 uppercase mb-2">Vijaya Gopinadh Reddy<span
                     class="text-teal-800"> Velagala</span></h1>
-            <p class="text-xl font-bold text-teal-900 tracking-wider uppercase mb-5">Senior Data Engineer</p>
+            <p class="text-xl font-bold text-teal-900 tracking-wider uppercase mb-5">DATA ENGINEER | BIG DATA |
+                LAKEHOUSE | CLOUD</p>
 
             <!-- Contact Info Row -->
             <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600 font-medium">
@@ -156,17 +98,15 @@
                     <a href="https://linkedin.com/in/developerswork" target="_blank"
                         class="hover:text-teal-800 hover:underline">in/developerswork</a>
                 </div>
+                <p class="text-gray-600 leading-relaxed text-xs">
+                    Data Engineer with 5+ years of experience designing and optimizing scalable data
+                    pipelines on AWS and Azure using PySpark, Databricks, and Delta Lake. Proven
+                    experience building production-grade Lakehouse architectures, optimizing Spark
+                    jobs for performance, and ensuring data quality for large-scale analytical
+                    workloads in energy and telecom domains.
+                </p>
             </div>
         </header>
-
-        <!-- Top Summary -->
-        <div class="mb-6 text-center max-w-4xl mx-auto">
-            <p class="text-gray-600 leading-relaxed text-lg">
-                Passionate about continuous learning, with deep expertise in cloud infrastructure and big data. Proven
-                track record of delivering robust data solutions for major clients in the energy and telecommunications
-                sectors.
-            </p>
-        </div>
 
         <!-- Main Grid Layout -->
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-full">
@@ -177,7 +117,7 @@
                 <!-- About Me -->
                 <section>
                     <h3
-                        class="text-teal-900 font-bold uppercase tracking-wider mb-3 text-lg border-b-2 border-teal-900 w-12 pb-1">
+                        class="text-teal-900 font-bold uppercase tracking-wider mb-3 text-lg border-b-2 border-teal-900 w-28 pb-1">
                         About Me</h3>
                     <p class="text-sm text-gray-600 leading-relaxed">
                         Big Data Engineer and Specialist Programmer with over 5 years of experience. I specialize in
@@ -189,26 +129,25 @@
                 <!-- Expertise -->
                 <section>
                     <h3
-                        class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-12 pb-1">
+                        class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-28 pb-1">
                         Expertise</h3>
                     <ul class="space-y-3 text-sm">
                         <li>
-                            <strong class="block text-gray-900">Languages</strong>
-                            <span class="text-gray-600">Python, SQL, C++, (PHP, Java, JavaScript)</span>
+                            <strong class="block text-gray-900">Big Data & Processing</strong>
+                            <span class="text-gray-600">PySpark, Apache Spark, Databricks, Delta Lake</span>
                         </li>
                         <li>
-                            <strong class="block text-gray-900">Databases & Cloud</strong>
-                            <span class="text-gray-600">PostgreSQL, MongoDB, MySQL, AWS, Azure, GCP</span>
+                            <strong class="block text-gray-900">Cloud</strong>
+                            <span class="text-gray-600">AWS (Glue, Step Functions), Azure, GCP</span>
                         </li>
                         <li>
-                            <strong class="block text-gray-900">Tech Stack</strong>
-                            <span class="text-gray-600">Databricks, Apache Spark, Delta Lake, Pinecone (Vector DB), AWS
-                                Glue</span>
+                            <strong class="block text-gray-900">Databases</strong>
+                            <span class="text-gray-600">PostgreSQL, MySQL, MongoDB</span>
                         </li>
                         <li>
                             <strong class="block text-gray-900">Concepts</strong>
-                            <span class="text-gray-600">Medallion Architecture, RAG, WAP Pattern, Z-Ordering, Salting,
-                                CAP Theorem</span>
+                            <span class="text-gray-600">Medallion Architecture, WAP Pattern, Z-Ordering, Data Skipping,
+                                Salting, CAP Theorem</span>
                         </li>
                         <li>
                             <strong class="block text-gray-900">DevOps</strong>
@@ -220,7 +159,7 @@
                 <!-- Certifications -->
                 <section>
                     <h3
-                        class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-12 pb-1">
+                        class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-28 pb-1">
                         Certifications
                     </h3>
                     <div class="flex flex-col gap-4">
@@ -285,15 +224,16 @@
                                     class="text-sm font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full mt-1 sm:mt-0">Feb
                                     2025 – Present</span>
                             </div>
-                            <p class="text-gray-700 italic mb-3 font-medium">Data Engineer | Hyderabad</p>
+                            <p class="text-gray-700 italic mb-3 font-medium">Specialist Programmer L2 (Data Engineering)
+                                | Hyderabad</p>
                             <ul
                                 class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-teal-600 text-sm leading-relaxed">
-                                <li>Developing PySpark scripts leveraging AWS Glue jobs and Crawlers for efficient ETL
-                                    data processing.</li>
-                                <li>Orchestrating complex workflows using AWS Step Functions and managing infrastructure
-                                    via CloudFormation.</li>
-                                <li>Managing relational databases using AWS Aurora Postgres to ensure high availability
-                                    and data integrity.</li>
+                                <li>Developed scalable PySpark ETL pipelines using AWS Glue and Crawlers,
+                                    processing multi-GB datasets for downstream analytics.</li>
+                                <li>Orchestrated end-to-end data workflows using AWS Step Functions and
+                                    CloudFormation, improving pipeline reliability and deployment consistency.</li>
+                                <li>Managed AWS Aurora PostgreSQL databases, ensuring high availability and
+                                    supporting analytical reporting workloads.</li>
                             </ul>
                         </div>
 
@@ -307,13 +247,13 @@
                                     class="text-sm font-bold text-gray-600 bg-gray-100 px-3 py-1 rounded-full mt-1 sm:mt-0">Mar
                                     2021 – Dec 2024</span>
                             </div>
-                            <p class="text-gray-700 italic mb-3 font-medium">Data Engineer | Hyderabad</p>
+                            <p class="text-gray-700 italic mb-3 font-medium">Specialist Programmer L1 (Data Engineering)
+                                | Hyderabad</p>
                             <ul
                                 class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-gray-400 text-sm leading-relaxed">
-                                <li>Designed and implemented efficient data pipelines and ETL processes using Azure and
-                                    PySpark.</li>
-                                <li>Played a key role in data warehousing and reporting, ensuring accuracy for strategic
-                                    decision-making.</li>
+                                <li>Designed and implemented Azure-based ETL pipelines using PySpark,
+                                    supporting enterprise-scale data warehousing and reporting use cases.</li>
+                                <li>Optimized Spark jobs to improve data processing performance and reliability.</li>
                                 <li>Recognized as MVP for outstanding contributions and proactive learning.</li>
                             </ul>
                         </div>
@@ -339,21 +279,19 @@
                         <!-- Project 1 -->
                         <div>
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-gray-900">Retail360 GenAI Lakehouse</h3>
+                                <h3 class="text-lg font-bold text-gray-900">Retail360 Lakehouse</h3>
                                 <span
-                                    class="bg-teal-50 text-teal-800 text-xs font-bold px-2 py-1 rounded border border-teal-100">Databricks
-                                    & AWS</span>
+                                    class="bg-teal-50 text-teal-800 text-xs font-bold px-2 py-1 rounded border border-teal-100">Databricks</span>
                             </div>
-                            <p class="text-sm text-gray-600 mb-3 italic">Designed a production-grade Medallion
-                                Architecture (Bronze/Silver/Gold) utilizing Auto Loader and Delta Lake.</p>
+                            <p class="text-sm text-gray-600 mb-3 italic">Designed a production-grade Lakehouse
+                                architecture (Bronze/Silver/Gold) using
+                                Databricks Auto Loader and Delta Lake for analytical workloads.</p>
                             <ul
                                 class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-teal-600 text-sm leading-relaxed">
-                                <li>Optimized query latency by 40% via Z-Ordering and Data Skipping; solved critical
-                                    data skew in high-volume joins using Salted Join strategies.</li>
-                                <li>Built a Write-Audit-Publish (WAP) pattern with blocking Data Quality Gates in
-                                    PySpark to prevent schema drift and ensure downstream data integrity.</li>
-                                <li>Developed a RAG pipeline integrating Spark Structured Streaming with Pinecone Vector
-                                    Database for semantic search on unstructured text.</li>
+                                <li>Improved query latency by ~40% using Z-Ordering and Data Skipping.</li>
+                                <li>Implemented Salted Join strategies to handle data skew in high-volume joins.</li>
+                                <li>Built a Write-Audit-Publish (WAP) pattern with data quality checks in PySpark
+                                    to prevent schema drift and ensure downstream data integrity.</li>
                             </ul>
                         </div>
                     </div>
@@ -372,12 +310,12 @@
                         </div>
                         <h2 class="text-2xl font-bold text-teal-900 uppercase tracking-wide">Education</h2>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                    <div>
                         <div class="flex justify-between items-start">
                             <div>
-                                <h3 class="text-lg font-bold text-gray-900">B.Tech in Computer Science and Engineering
+                                <h3 class="text-lg font-bold text-gray-900">B.Tech in Computer Science Engineering
                                 </h3>
-                                <p class="text-gray-600">Sasi Institute of Technology & Engineering</p>
+                                <p class="text-gray-600">Sasi Institute of Technology & Engineering, Tadepalligudem.</p>
                             </div>
                             <span class="text-sm font-bold text-gray-500">2016 – 2020</span>
                         </div>
