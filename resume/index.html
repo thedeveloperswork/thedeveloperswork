@@ -12,7 +12,6 @@
         body {
             font-family: 'Noto Sans', sans-serif;
             background-color: #f3f4f6;
-            /* Light gray bg for the window */
         }
 
         .resume-container {
@@ -25,45 +24,52 @@
 
         /* Print Styles */
         @media print {
-            body {
-                background: white;
+            @page {
+                size: A4;
                 margin: 0;
+            }
+
+            body {
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
 
             .resume-container {
-                width: 100%;
-                margin: 0;
-                box-shadow: none;
-                min-height: auto;
+                width: 210mm !important;
+                min-height: 297mm !important;
+                margin: 0 !important;
+                padding: 12mm !important;
+                box-shadow: none !important;
+                overflow: visible !important;
             }
 
-            .no-print {
-                display: none;
+            .no-print,
+            .no-print *,
+            #print-btn-container {
+                display: none !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                width: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
             }
 
             a {
-                text-decoration: none;
-                color: inherit;
+                text-decoration: none !important;
+                color: inherit !important;
             }
         }
 
-        /* Color Variables based on LaTeX */
+        /* Color Variables */
         :root {
             --primary-teal: #004d40;
             --text-dark: #374151;
             --text-gray: #4b5563;
-        }
-
-        .text-primary {
-            color: var(--primary-teal);
-        }
-
-        .bg-primary {
-            background-color: var(--primary-teal);
-        }
-
-        .border-primary {
-            border-color: var(--primary-teal);
         }
     </style>
 </head>
@@ -71,7 +77,7 @@
 <body class="text-gray-700">
 
     <!-- Floating Actions (Screen Only) -->
-    <div class="fixed bottom-8 right-8 flex gap-4 no-print z-50">
+    <div id="print-btn-container" class="fixed bottom-8 right-8 flex gap-4 no-print z-50">
         <button onclick="window.print()"
             class="bg-gray-800 hover:bg-gray-900 text-white p-4 rounded-full shadow-lg transition-all flex items-center gap-2 group">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -87,14 +93,70 @@
     </div>
 
     <!-- Resume Page -->
-    <div class="resume-container flex flex-col p-8 md:p-12 relative overflow-hidden" id="resume">
+    <main class="resume-container flex flex-col p-8 md:p-12 relative overflow-hidden" id="resume" role="main">
 
         <!-- Header Section -->
-        <header class="text-center mb-4 border-b-2 border-teal-900/10 pb-8">
+        <header class="text-center mb-6 border-b-2 border-teal-900/10 pb-6">
             <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 uppercase mb-2">Vijaya Gopinadh Reddy<span
                     class="text-teal-800"> Velagala</span></h1>
-            <p class="text-xl font-bold text-teal-900 tracking-wider uppercase">Specialist Programmer - L2 | Data
-                Engineer</p>
+            <p class="text-xl font-bold text-teal-900 tracking-wider uppercase mb-5">Senior Data Engineer</p>
+
+            <!-- Contact Info Row -->
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600 font-medium">
+                <div class="flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-teal-700">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                    </svg>
+                    <span>+91 6281762528</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-teal-700">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <a href="mailto:gopinadh199922@gmail.com"
+                        class="hover:text-teal-800 hover:underline">gopinadh199922@gmail.com</a>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-teal-700">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>Hyderabad, India</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-teal-700">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                        </path>
+                    </svg>
+                    <a href="https://thedevelopers.work" target="_blank"
+                        class="hover:text-teal-800 hover:underline">thedevelopers.work</a>
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-teal-700">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    <a href="https://linkedin.com/in/developerswork" target="_blank"
+                        class="hover:text-teal-800 hover:underline">in/developerswork</a>
+                </div>
+            </div>
         </header>
 
         <!-- Top Summary -->
@@ -107,10 +169,10 @@
         </div>
 
         <!-- Main Grid Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-full">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-full">
 
             <!-- LEFT COLUMN (Sidebar style) -->
-            <div class="md:col-span-4 flex flex-col gap-8 border-r border-gray-100 pr-4">
+            <div class="md:col-span-4 flex flex-col gap-8 border-r border-gray-100 pr-6">
 
                 <!-- About Me -->
                 <section>
@@ -124,38 +186,6 @@
                     </p>
                 </section>
 
-                <!-- Contact -->
-                <section>
-                    <h3
-                        class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-12 pb-1">
-                        Contact</h3>
-                    <div class="flex flex-col gap-3 text-sm">
-                        <div>
-                            <span class="block font-semibold text-gray-900">Phone</span>
-                            <span class="text-gray-600">+91 6281762528</span>
-                        </div>
-                        <div>
-                            <span class="block font-semibold text-gray-900">Email</span>
-                            <a href="mailto:gopinadh199922@gmail.com"
-                                class="text-teal-700 hover:underline break-all">gopinadh199922@gmail.com</a>
-                        </div>
-                        <div>
-                            <span class="block font-semibold text-gray-900">Location</span>
-                            <span class="text-gray-600">Hyderabad, Telangana, India</span>
-                        </div>
-                        <div>
-                            <span class="block font-semibold text-gray-900">Portfolio</span>
-                            <a href="https://thedevelopers.work" target="_blank"
-                                class="text-teal-700 hover:underline">thedevelopers.work</a>
-                        </div>
-                        <div>
-                            <span class="block font-semibold text-gray-900">LinkedIn</span>
-                            <a href="https://linkedin.com/in/developerswork" target="_blank"
-                                class="text-teal-700 hover:underline">in/developerswork</a>
-                        </div>
-                    </div>
-                </section>
-
                 <!-- Expertise -->
                 <section>
                     <h3
@@ -167,16 +197,18 @@
                             <span class="text-gray-600">Python, SQL, C++, (PHP, Java, JavaScript)</span>
                         </li>
                         <li>
-                            <strong class="block text-gray-900">Databases</strong>
-                            <span class="text-gray-600">PostgreSQL, MongoDB, MySQL</span>
+                            <strong class="block text-gray-900">Databases & Cloud</strong>
+                            <span class="text-gray-600">PostgreSQL, MongoDB, MySQL, AWS, Azure, GCP</span>
                         </li>
                         <li>
-                            <strong class="block text-gray-900">Cloud</strong>
-                            <span class="text-gray-600">AWS, Azure, GCP</span>
+                            <strong class="block text-gray-900">Tech Stack</strong>
+                            <span class="text-gray-600">Databricks, Apache Spark, Delta Lake, Pinecone (Vector DB), AWS
+                                Glue</span>
                         </li>
                         <li>
-                            <strong class="block text-gray-900">Tools & Services</strong>
-                            <span class="text-gray-600">ADF, Synapse, CosmosDB, AWS Glue, Databricks</span>
+                            <strong class="block text-gray-900">Concepts</strong>
+                            <span class="text-gray-600">Medallion Architecture, RAG, WAP Pattern, Z-Ordering, Salting,
+                                CAP Theorem</span>
                         </li>
                         <li>
                             <strong class="block text-gray-900">DevOps</strong>
@@ -185,16 +217,41 @@
                     </ul>
                 </section>
 
-                <!-- Honors -->
+                <!-- Certifications -->
                 <section>
                     <h3
                         class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-12 pb-1">
-                        Honors</h3>
-                    <ul class="text-sm space-y-2 text-gray-600 list-disc list-inside marker:text-teal-800">
-                        <li>MVP - Team Monaco</li>
-                        <li>Rise Insta Award</li>
-                        <li>Rock Star Award</li>
-                    </ul>
+                        Certifications
+                    </h3>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-start gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                                alt="Microsoft" class="w-5 h-5 object-contain mt-0.5 opacity-80">
+                            <div>
+                                <span class="block font-semibold text-gray-800 text-sm leading-tight">Azure Data
+                                    Engineer Associate</span>
+                                <span class="text-xs text-gray-500">Microsoft Certified</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg"
+                                alt="Google Cloud" class="w-5 h-5 object-contain mt-0.5 opacity-80">
+                            <div>
+                                <span class="block font-semibold text-gray-800 text-sm leading-tight">Generative AI
+                                    Leader</span>
+                                <span class="text-xs text-gray-500">Google Cloud</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg"
+                                alt="MongoDB" class="w-5 h-5 object-contain mt-0.5 opacity-80">
+                            <div>
+                                <span class="block font-semibold text-gray-800 text-sm leading-tight">MongoDB for
+                                    Javascript Developers</span>
+                                <span class="text-xs text-gray-500">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
             </div>
@@ -223,8 +280,7 @@
                             <div class="absolute -left-[41px] bg-teal-900 h-6 w-6 rounded-full border-4 border-white">
                             </div>
                             <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                                <h3 class="text-l font-bold text-gray-900">Infosys: British Petroleum (BP)
-                                </h3>
+                                <h3 class="text-lg font-bold text-gray-900">Infosys: British Petroleum (BP)</h3>
                                 <span
                                     class="text-sm font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full mt-1 sm:mt-0">Feb
                                     2025 – Present</span>
@@ -236,8 +292,8 @@
                                     data processing.</li>
                                 <li>Orchestrating complex workflows using AWS Step Functions and managing infrastructure
                                     via CloudFormation.</li>
-                                <li>Managing relational databases using AWS Aurora Postgres to ensure high availability.
-                                </li>
+                                <li>Managing relational databases using AWS Aurora Postgres to ensure high availability
+                                    and data integrity.</li>
                             </ul>
                         </div>
 
@@ -246,7 +302,7 @@
                             <div class="absolute -left-[41px] bg-gray-300 h-6 w-6 rounded-full border-4 border-white">
                             </div>
                             <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                                <h3 class="text-l font-bold text-gray-900">Infosys: Telstra</h3>
+                                <h3 class="text-lg font-bold text-gray-900">Infosys: Telstra</h3>
                                 <span
                                     class="text-sm font-bold text-gray-600 bg-gray-100 px-3 py-1 rounded-full mt-1 sm:mt-0">Mar
                                     2021 – Dec 2024</span>
@@ -262,6 +318,44 @@
                             </ul>
                         </div>
 
+                    </div>
+                </section>
+
+                <!-- Projects (New Section) -->
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-teal-900 p-2 rounded-lg text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-teal-900 uppercase tracking-wide">Technical Projects</h2>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Project 1 -->
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-gray-900">Retail360 GenAI Lakehouse</h3>
+                                <span
+                                    class="bg-teal-50 text-teal-800 text-xs font-bold px-2 py-1 rounded border border-teal-100">Databricks
+                                    & AWS</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3 italic">Designed a production-grade Medallion
+                                Architecture (Bronze/Silver/Gold) utilizing Auto Loader and Delta Lake.</p>
+                            <ul
+                                class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-teal-600 text-sm leading-relaxed">
+                                <li>Optimized query latency by 40% via Z-Ordering and Data Skipping; solved critical
+                                    data skew in high-volume joins using Salted Join strategies.</li>
+                                <li>Built a Write-Audit-Publish (WAP) pattern with blocking Data Quality Gates in
+                                    PySpark to prevent schema drift and ensure downstream data integrity.</li>
+                                <li>Developed a RAG pipeline integrating Spark Structured Streaming with Pinecone Vector
+                                    Database for semantic search on unstructured text.</li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
 
@@ -290,45 +384,12 @@
                     </div>
                 </section>
 
-                <!-- Certifications -->
-                <section>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="bg-teal-900 p-2 rounded-lg text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <circle cx="12" cy="8" r="7"></circle>
-                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                            </svg>
-                        </div>
-                        <h2 class="text-2xl font-bold text-teal-900 uppercase tracking-wide">Certifications</h2>
-                    </div>
-                    <div class="grid gap-4">
-                        <div class="flex items-center gap-4 p-4 bg-white border border-gray-100 shadow-sm rounded-lg">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
-                                alt="Microsoft" class="w-8 h-8 object-contain">
-                            <span class="font-medium text-gray-800">Microsoft Certified: Azure Data Engineer
-                                Associate</span>
-                        </div>
-                        <div class="flex items-center gap-4 p-4 bg-white border border-gray-100 shadow-sm rounded-lg">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg"
-                                alt="Google Cloud" class="w-8 h-8 object-contain">
-                            <span class="font-medium text-gray-800">Google Cloud: Generative AI Leader</span>
-                        </div>
-                        <div class="flex items-center gap-4 p-4 bg-white border border-gray-100 shadow-sm rounded-lg">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg"
-                                alt="MongoDB" class="w-8 h-8 object-contain">
-                            <span class="font-medium text-gray-800">MongoDB for Javascript Developers</span>
-                        </div>
-                    </div>
-                </section>
-
             </div>
         </div>
 
         <!-- Decoration / Footer line -->
-        <div class="absolute bottom-0 left-0 w-full h-2 bg-teal-900"></div>
-    </div>
+        <div class="absolute bottom-0 left-0 w-full h-2 bg-teal-900 no-print"></div>
+    </main>
 
 </body>
 
