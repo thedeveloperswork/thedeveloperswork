@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Vijaya Gopinadh Reddy Velagala</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #f3f4f6;
+            /* Light gray bg for the window */
+        }
+
+        .resume-container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+            }
+
+            .resume-container {
+                width: 100%;
+                margin: 0;
+                box-shadow: none;
+                min-height: auto;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+
+        /* Color Variables based on LaTeX */
+        :root {
+            --primary-teal: #004d40;
+            --text-dark: #374151;
+            --text-gray: #4b5563;
+        }
+
+        .text-primary {
+            color: var(--primary-teal);
+        }
+
+        .bg-primary {
+            background-color: var(--primary-teal);
+        }
+
+        .border-primary {
+            border-color: var(--primary-teal);
+        }
+    </style>
+</head>
+
+<body class="text-gray-700">
+
+    <!-- Floating Actions (Screen Only) -->
+    <div class="fixed bottom-8 right-8 flex gap-4 no-print z-50">
+        <button onclick="window.print()"
+            class="bg-gray-800 hover:bg-gray-900 text-white p-4 rounded-full shadow-lg transition-all flex items-center gap-2 group">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9V2h12v7"></path>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <path d="M6 14h12v8H6z"></path>
+            </svg>
+            <span
+                class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">Print
+                / Save as PDF</span>
+        </button>
+    </div>
+
+    <!-- Resume Page -->
+    <div class="resume-container flex flex-col p-8 md:p-12 relative overflow-hidden" id="resume">
+
+        <!-- Header Section -->
+        <header class="text-center mb-4 border-b-2 border-teal-900/10 pb-8">
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 uppercase mb-2">Vijaya Gopinadh Reddy<span
+                    class="text-teal-800"> Velagala</span></h1>
+            <p class="text-xl font-bold text-teal-900 tracking-wider uppercase">Specialist Programmer - L2 | Data
+                Engineer</p>
+        </header>
+
+        <!-- Top Summary -->
+        <div class="mb-6 text-center max-w-4xl mx-auto">
+            <p class="text-gray-600 leading-relaxed text-lg">
+                Passionate about continuous learning, with deep expertise in cloud infrastructure and big data. Proven
+                track record of delivering robust data solutions for major clients in the energy and telecommunications
+                sectors.
+            </p>
+        </div>
+
+        <!-- Main Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-full">
+
+            <!-- LEFT COLUMN (Sidebar style) -->
+            <div class="md:col-span-4 flex flex-col gap-8 border-r border-gray-100 pr-4">
+
+                <!-- About Me -->
+                <section>
+                    <h3
+                        class="text-teal-900 font-bold uppercase tracking-wider mb-3 text-lg border-b-2 border-teal-900 w-12 pb-1">
+                        About Me</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Big Data Engineer and Specialist Programmer with over 5 years of experience. I specialize in
+                        designing and optimizing scalable data pipelines on AWS and Azure ecosystems using PySpark and
+                        SQL.
+                    </p>
+                </section>
+
+                <!-- Contact -->
+                <section>
+                    <h3
+                        class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-12 pb-1">
+                        Contact</h3>
+                    <div class="flex flex-col gap-3 text-sm">
+                        <div>
+                            <span class="block font-semibold text-gray-900">Phone</span>
+                            <span class="text-gray-600">+91 6281762528</span>
+                        </div>
+                        <div>
+                            <span class="block font-semibold text-gray-900">Email</span>
+                            <a href="mailto:gopinadh199922@gmail.com"
+                                class="text-teal-700 hover:underline break-all">gopinadh199922@gmail.com</a>
+                        </div>
+                        <div>
+                            <span class="block font-semibold text-gray-900">Location</span>
+                            <span class="text-gray-600">Hyderabad, Telangana, India</span>
+                        </div>
+                        <div>
+                            <span class="block font-semibold text-gray-900">Portfolio</span>
+                            <a href="https://thedevelopers.work" target="_blank"
+                                class="text-teal-700 hover:underline">thedevelopers.work</a>
+                        </div>
+                        <div>
+                            <span class="block font-semibold text-gray-900">LinkedIn</span>
+                            <a href="https://linkedin.com/in/developerswork" target="_blank"
+                                class="text-teal-700 hover:underline">in/developerswork</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Expertise -->
+                <section>
+                    <h3
+                        class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-12 pb-1">
+                        Expertise</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li>
+                            <strong class="block text-gray-900">Languages</strong>
+                            <span class="text-gray-600">Python, SQL, C++, (PHP, Java, JavaScript)</span>
+                        </li>
+                        <li>
+                            <strong class="block text-gray-900">Databases</strong>
+                            <span class="text-gray-600">PostgreSQL, MongoDB, MySQL</span>
+                        </li>
+                        <li>
+                            <strong class="block text-gray-900">Cloud</strong>
+                            <span class="text-gray-600">AWS, Azure, GCP</span>
+                        </li>
+                        <li>
+                            <strong class="block text-gray-900">Tools & Services</strong>
+                            <span class="text-gray-600">ADF, Synapse, CosmosDB, AWS Glue, Databricks</span>
+                        </li>
+                        <li>
+                            <strong class="block text-gray-900">DevOps</strong>
+                            <span class="text-gray-600">Git, CI/CD, Docker</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Honors -->
+                <section>
+                    <h3
+                        class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-12 pb-1">
+                        Honors</h3>
+                    <ul class="text-sm space-y-2 text-gray-600 list-disc list-inside marker:text-teal-800">
+                        <li>MVP - Team Monaco</li>
+                        <li>Rise Insta Award</li>
+                        <li>Rock Star Award</li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <!-- RIGHT COLUMN (Main Content) -->
+            <div class="md:col-span-8 flex flex-col gap-8">
+
+                <!-- Experience -->
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-teal-900 p-2 rounded-lg text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-teal-900 uppercase tracking-wide">Experience</h2>
+                    </div>
+
+                    <div class="relative border-l-2 border-gray-200 ml-3 space-y-10 pl-8 pb-4">
+
+                        <!-- Job 1 -->
+                        <div class="relative">
+                            <div class="absolute -left-[41px] bg-teal-900 h-6 w-6 rounded-full border-4 border-white">
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                                <h3 class="text-l font-bold text-gray-900">Infosys: British Petroleum (BP)
+                                </h3>
+                                <span
+                                    class="text-sm font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full mt-1 sm:mt-0">Feb
+                                    2025 – Present</span>
+                            </div>
+                            <p class="text-gray-700 italic mb-3 font-medium">Data Engineer | Hyderabad</p>
+                            <ul
+                                class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-teal-600 text-sm leading-relaxed">
+                                <li>Developing PySpark scripts leveraging AWS Glue jobs and Crawlers for efficient ETL
+                                    data processing.</li>
+                                <li>Orchestrating complex workflows using AWS Step Functions and managing infrastructure
+                                    via CloudFormation.</li>
+                                <li>Managing relational databases using AWS Aurora Postgres to ensure high availability.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Job 2 -->
+                        <div class="relative">
+                            <div class="absolute -left-[41px] bg-gray-300 h-6 w-6 rounded-full border-4 border-white">
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                                <h3 class="text-l font-bold text-gray-900">Infosys: Telstra</h3>
+                                <span
+                                    class="text-sm font-bold text-gray-600 bg-gray-100 px-3 py-1 rounded-full mt-1 sm:mt-0">Mar
+                                    2021 – Dec 2024</span>
+                            </div>
+                            <p class="text-gray-700 italic mb-3 font-medium">Data Engineer | Hyderabad</p>
+                            <ul
+                                class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-gray-400 text-sm leading-relaxed">
+                                <li>Designed and implemented efficient data pipelines and ETL processes using Azure and
+                                    PySpark.</li>
+                                <li>Played a key role in data warehousing and reporting, ensuring accuracy for strategic
+                                    decision-making.</li>
+                                <li>Recognized as MVP for outstanding contributions and proactive learning.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-teal-900 p-2 rounded-lg text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-teal-900 uppercase tracking-wide">Education</h2>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900">B.Tech in Computer Science and Engineering
+                                </h3>
+                                <p class="text-gray-600">Sasi Institute of Technology & Engineering</p>
+                            </div>
+                            <span class="text-sm font-bold text-gray-500">2016 – 2020</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certifications -->
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-teal-900 p-2 rounded-lg text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-teal-900 uppercase tracking-wide">Certifications</h2>
+                    </div>
+                    <div class="grid gap-4">
+                        <div class="flex items-center gap-4 p-4 bg-white border border-gray-100 shadow-sm rounded-lg">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                                alt="Microsoft" class="w-8 h-8 object-contain">
+                            <span class="font-medium text-gray-800">Microsoft Certified: Azure Data Engineer
+                                Associate</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-white border border-gray-100 shadow-sm rounded-lg">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg"
+                                alt="Google Cloud" class="w-8 h-8 object-contain">
+                            <span class="font-medium text-gray-800">Google Cloud: Generative AI Leader</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-white border border-gray-100 shadow-sm rounded-lg">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg"
+                                alt="MongoDB" class="w-8 h-8 object-contain">
+                            <span class="font-medium text-gray-800">MongoDB for Javascript Developers</span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Decoration / Footer line -->
+        <div class="absolute bottom-0 left-0 w-full h-2 bg-teal-900"></div>
+    </div>
+
+</body>
+
+</html>
