@@ -145,24 +145,27 @@
                     <ul class="space-y-3 text-sm">
                         <li>
                             <strong class="block text-gray-900">Big Data & Processing</strong>
-                            <span class="text-gray-600">PySpark, Apache Spark, Databricks, Delta Lake</span>
+                            <span class="text-gray-600">PySpark, Apache Spark, Databricks (<b>Delta Live Tables</b>,
+                                <b>Unity Catalog</b>), Delta Lake</span>
                         </li>
                         <li>
-                            <strong class="block text-gray-900">Cloud</strong>
-                            <span class="text-gray-600">AWS (Glue, Step Functions), Azure, GCP</span>
+                            <strong class="block text-gray-900">Cloud & Infrastructure</strong>
+                            <span class="text-gray-600">AWS (Glue, Step Functions, CloudFormation, DynamoDB), Azure
+                                (CosmosDB,
+                                Data Factory, Event Hubs), GCP(Firebase)</span>
                         </li>
                         <li>
                             <strong class="block text-gray-900">Databases</strong>
                             <span class="text-gray-600">PostgreSQL, MySQL, MongoDB</span>
                         </li>
                         <li>
-                            <strong class="block text-gray-900">Concepts</strong>
-                            <span class="text-gray-600">Medallion Architecture, WAP Pattern, Z-Ordering, Data Skipping,
-                                Salting, CAP Theorem</span>
+                            <strong class="block text-gray-900">Architecture & Patterns</strong>
+                            <span class="text-gray-600"><b>WAP</b>(Write-Audit-Publish), Medallion Architecture,
+                                Z-Ordering, Data Skipping, Salting, SCD(Slowly Changing Dimensions) Type 0/1/2/3</span>
                         </li>
                         <li>
-                            <strong class="block text-gray-900">DevOps</strong>
-                            <span class="text-gray-600">Git, CI/CD, Docker</span>
+                            <strong class="block text-gray-900">Engineering & DevOps</strong>
+                            <span class="text-gray-600">Git, CI/CD (GitHub Actions), Docker, <b>Pytest</b></span>
                         </li>
                     </ul>
                 </section>
@@ -277,10 +280,13 @@
                                 <li>Promoted to <b>Specialist Programmer L2</b> for owning complex,
                                     high-stakes capabilities end-to-end — from design through production
                                     delivery.</li>
-                                <li>Published technical deep-dives on <b>Medium</b> covering Google GenAI
-                                    Certification prep and bridging data engineering with game development.</li>
-                                <li>Won multiple <b>Rise Insta</b> and <b>MVP awards</b> for shipping
-                                    critical deliverables ahead of schedule and unblocking dependent teams.</li>
+                                <li>Authored technical publications on <b>Medium.com</b> centered on Google Cloud
+                                    Generative AI
+                                    implementation and the application of low-level systems programming in large-scale
+                                    data architectures.</li>
+                                <li>Recognized with multiple <b>MVP awards</b> for technical ownership of high-stakes
+                                    deliverables, consistently shipping production-ready pipelines ahead of schedule.
+                                </li>
                             </ul>
 
                             <!-- Nested Client Sub-Sections -->
@@ -392,11 +398,16 @@
         </div>
 
         <!-- Decoration / Footer line -->
-        <div class="absolute bottom-0 left-0 w-full h-5 bg-teal-900 text-center text-[.1px] text-white">
+        <div class="absolute bottom-0 left-0 w-full h-5 bg-teal-900 text-center text-[.6px] text-white">
             <strong>
-                Data Engineer, Big Data Engineer, PySpark, Apache Spark, Databricks, Delta Lake, Lakehouse Architecture,
-                AWS Glue, Azure, ETL, Data Pipelines, Data Warehousing, SQL, PostgreSQL, Azure Data Factory, CosmosDB,
-                MongoDB
+                Data Engineering, Big Data, ETL, ELT, Data Lakehouse, Distributed Computing, Scalability, High
+                Availability, Data Integrity, Data Governance, Performance Tuning, Query Optimization, Design Patterns:
+                Singleton, Factory, Observer, Strategy, Decorator, State, Object Pooling, Data Patterns:
+                Write-Audit-Publish (WAP), Medallion Architecture (Bronze/Silver/Gold), Star Schema, Snowflake Schema,
+                Slowly Changing Dimensions (SCD), ACID Compliance, CAP Theorem, Tools & Frameworks: Apache Spark,
+                PySpark, Delta Lake, Databricks, AWS Glue, AWS Step Functions, Azure Event Hubs, CloudFormation,
+                Terraform, Docker, Kubernetes, CI/CD, Pytest, Unit Testing, Integration Testing, Regression Testing,
+                Version Control, Git, GitHub, Bitbucket.
             </strong>
         </div>
     </main>
@@ -423,8 +434,8 @@
             iframe.style.position = 'fixed';
             iframe.style.top = '-10000px';
             iframe.style.left = '-10000px';
-            iframe.style.width = '1200px';
-            iframe.style.height = '900px';
+            iframe.style.width = '100vw';
+            iframe.style.aspectRatio = '3 / 4';
             document.body.appendChild(iframe);
 
             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
