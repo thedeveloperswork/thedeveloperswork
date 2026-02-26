@@ -31,18 +31,95 @@
                 padding: 0;
             }
 
+            /* A4 width — prevents grid collapse in browser PDF renderer */
             .resume-container {
-                width: 100%;
-                margin: 0;
-                padding: 0;
+                display: block !important;
+                width: 210mm !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
             }
 
             .no-print {
                 display: none !important;
             }
+
+            /* Prevent blocks from splitting across pages */
+            .page-safe {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            /* ---- Grid column enforcement (all !important) ---- */
+
+            /* Core Competencies — 4 columns */
+            .competencies-grid {
+                display: grid !important;
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            }
+
+            /* Technical Breadth — 1 column (full-width cards, clean page breaks) */
+            .md\:grid-cols-3 {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Education & Certifications — 2 columns (1fr 1fr for equal halves) */
+            .md\:grid-cols-2 {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            /* Flex-row overrides for experience header rows */
+            .sm\:flex-row {
+                flex-direction: row !important;
+            }
+
+            .sm\:justify-between {
+                justify-content: space-between !important;
+            }
+
+            .sm\:items-baseline {
+                align-items: baseline !important;
+            }
+
+            /* @page margin for footer space */
+            @page {
+                size: A4;
+                margin: 10mm 10mm 18mm 10mm;
+            }
+
+            /* Print footer — static text, no counter(pages) dependency */
+            body::after {
+                content: "Vijaya Gopinadh Reddy Velagala \2014  Senior Data Engineer";
+                display: block;
+                text-align: center;
+                font-size: 8px;
+                color: #64748b;
+                letter-spacing: 0.05em;
+                padding-top: 6px;
+                border-top: 1px solid #e2e8f0;
+                margin-top: 12px;
+            }
+
+            /* Hide decorative footer bar on print */
+            .decoration-footer {
+                display: none !important;
+            }
         }
 
-        /* Color Variables */
+        /* Global body — prevent orphan/widow lines at page breaks */
+        body {
+            orphans: 3;
+            widows: 3;
+        }
+
+        /* Prevent individual list items from breaking across pages */
+        li {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
         :root {
             --primary-teal: #004d40;
             --text-dark: #374151;
@@ -57,14 +134,14 @@
     <main class="resume-container flex flex-col p-8 md:p-8 relative" id="resume" role="main">
 
         <!-- Header Section -->
-        <header class="text-center mb-6 border-b-2 border-teal-900/10 pb-6">
-            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 uppercase mb-2">Vijaya Gopinadh Reddy<span
+        <header class="text-center mb-3 border-b-2 border-teal-900/10 pb-3">
+            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 uppercase mb-1">Vijaya Gopinadh Reddy<span
                     class="text-teal-800"> Velagala</span></h1>
-            <p class="text-l text-cyan-600 tracking-wider uppercase mb-5">DATA ENGINEER | BIG DATA |
-                LAKEHOUSE | CLOUD | PYSPARK | SQL</p>
+            <p class="text-sm text-teal-700 tracking-widest uppercase font-semibold mb-4">Senior Data Engineer
+                &nbsp;|&nbsp; Big Data Architect &nbsp;|&nbsp; Cloud &amp; Gen AI Solutions</p>
 
             <!-- Contact Info Row -->
-            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600 font-medium">
+            <div class="flex flex-wrap justify-center gap-x-5 gap-y-1.5 text-sm text-slate-600 font-medium mb-1">
                 <div class="flex items-center gap-1.5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -118,298 +195,556 @@
                     <a href="https://linkedin.com/in/developerswork" target="_blank"
                         class="hover:text-teal-800 hover:underline">in/developerswork</a>
                 </div>
-                <p class="text-gray-600 leading-relaxed text-xs">
-                    Data Engineer with <b>5+ years</b> of experience across
-                    <b>Energy</b> and <b>Telecom</b> domains. Specialist Programmer L2 recognized
-                    for an <b>engineering-first approach</b>, implementing
-                    <i>Write-Audit-Publish (WAP)</i> patterns and <i>Delta Lake</i> optimizations
-                    to ensure data integrity. Expert in maintaining a <b>zero-defect injection
-                        rate</b> through automated <i>Pytest</i> frameworks and rigorous validation
-                    suites for complex enterprise migrations.
+                <div class="flex items-center gap-1.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="text-teal-700 shrink-0">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    <a href="https://github.com/developerswork" target="_blank"
+                        class="hover:text-teal-800 hover:underline">GitHub</a>
+                </div>
+            </div>
+
+            <!-- Professional Summary -->
+            <div class="mt-3 pt-3 border-t border-teal-900/10 text-left mb-2">
+                <p class="text-xs text-slate-700 leading-relaxed">
+                    <span
+                        class="inline-block font-bold text-teal-900 uppercase tracking-widest text-[0.6rem] border border-teal-200 bg-teal-50 px-1.5 py-0.5 rounded mr-2 align-middle">Summary</span><span
+                        class="font-semibold text-slate-900">Specialist Programmer L2</span> with <span
+                        class="font-semibold">5+ years</span> of experience specializing in <span
+                        class="font-semibold">Big Data Architecture</span> and <span class="font-semibold">Lakehouse
+                        optimizations</span>. Proven expertise in maintaining a <span
+                        class="font-semibold text-teal-800">0% defect injection rate</span> through <em>WAP
+                        patterns</em> and automated <em>Pytest frameworks</em> at <span class="font-semibold">British
+                        Petroleum</span> and <span class="font-semibold">Telstra</span>. Unique engineering background
+                    spanning <span class="font-semibold">Full-Stack Web Development</span> (Firebase/Auth) and <span
+                        class="font-semibold">High-Performance Game Logic</span> (C++/Unity), utilizing advanced
+                    <em>Design Patterns</em> and <em>System Design</em> principles to build scalable, production-ready
+                    infrastructures.
                 </p>
             </div>
+            <!-- Core Competencies (Full-Width) -->
+            <section class="mb-1">
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="h-px flex-1 bg-teal-900/10"></div>
+                    <h2 class="text-xs font-bold text-teal-900 uppercase tracking-widest px-2">Core Competencies</h2>
+                    <div class="h-px flex-1 bg-teal-900/10"></div>
+                </div>
+                <div class="competencies-grid grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+
+                    <!-- Tier 1: Data Architecture & Strategy -->
+                    <div class="bg-teal-50 border-l-4 border-teal-900 rounded-r px-3 py-2.5">
+                        <p class="font-bold text-teal-900 uppercase tracking-wider text-[0.6rem] mb-1.5">Data
+                            Architecture
+                            &amp; Strategy</p>
+                        <ul class="space-y-1 text-slate-700">
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>Medallion Architecture
+                                    (Bronze
+                                    / Silver / Gold)</span></li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>Write-Audit-Publish (WAP)
+                                    Pattern</span></li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>Delta Lake — Z-Ordering
+                                    &amp;
+                                    Data Skipping</span></li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>SCD Type 0 / 1 / 2 /
+                                    3</span>
+                            </li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>Salted Joins for Data
+                                    Skew</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 2: Big Data & Cloud Ecosystem -->
+                    <div class="bg-teal-50 border-l-4 border-teal-900 rounded-r px-3 py-2.5">
+                        <p class="font-bold text-teal-900 uppercase tracking-wider text-[0.6rem] mb-1.5">Big Data &amp;
+                            Cloud Ecosystem</p>
+                        <p class="font-semibold text-slate-500 uppercase tracking-wider text-[0.55rem] mb-1">Processing
+                        </p>
+                        <ul class="space-y-1 text-slate-700 mb-2">
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>PySpark, Apache
+                                    Spark</span>
+                            </li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>Databricks (Unity Catalog,
+                                    Delta Live Tables)</span></li>
+                        </ul>
+                        <p class="font-semibold text-slate-500 uppercase tracking-wider text-[0.55rem] mb-1">Cloud</p>
+                        <ul class="space-y-1 text-slate-700">
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>AWS — Glue, Step
+                                    Functions,
+                                    CloudFormation</span></li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>Azure — Data Factory,
+                                    Synapse,
+                                    Event Hubs</span></li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>GCP (Firebase)</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 3: System Design & Engineering -->
+                    <div class="bg-teal-50 border-l-4 border-teal-900 rounded-r px-3 py-2.5">
+                        <p class="font-bold text-teal-900 uppercase tracking-wider text-[0.6rem] mb-1.5">System Design
+                            &amp;
+                            Engineering</p>
+                        <ul class="space-y-1 text-slate-700">
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>High-Level &amp; Low-Level
+                                    System Design <span class="text-slate-400 italic">(GeeksforGeeks
+                                        Certified)</span></span></li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>CAP Theorem &amp; ACID
+                                    Compliance</span></li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>Object-Oriented
+                                    Programming
+                                    (OOP)</span></li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>Design Patterns —
+                                    Singleton,
+                                    Observer, State Machine</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 4: Databases & DevOps -->
+                    <div class="bg-teal-50 border-l-4 border-teal-900 rounded-r px-3 py-2.5">
+                        <p class="font-bold text-teal-900 uppercase tracking-wider text-[0.6rem] mb-1.5">Databases &amp;
+                            DevOps</p>
+                        <p class="font-semibold text-slate-500 uppercase tracking-wider text-[0.55rem] mb-1">Databases
+                        </p>
+                        <ul class="space-y-1 text-slate-700 mb-2">
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>Aurora PostgreSQL,
+                                    CosmosDB</span></li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>MongoDB, MySQL</span></li>
+                        </ul>
+                        <p class="font-semibold text-slate-500 uppercase tracking-wider text-[0.55rem] mb-1">DevOps</p>
+                        <ul class="space-y-1 text-slate-700">
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>Git, CI/CD (GitHub
+                                    Actions,
+                                    Azure DevOps)</span></li>
+                            <li class="flex items-start gap-1"><span
+                                    class="text-teal-700 mt-0.5 shrink-0">&#9656;</span><span>Docker, Pytest</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
         </header>
 
-        <!-- Main Grid Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 h-full">
+        <!-- Experience -->
+        <section class="mb-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-teal-900 p-2 rounded-lg text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-teal-900 uppercase tracking-wide">Experience</h2>
+            </div>
 
-            <!-- LEFT COLUMN (Sidebar style) -->
-            <div class="md:col-span-4 flex flex-col gap-8 border-r border-gray-100 pr-6">
+            <div class="relative border-l-2 border-gray-200 space-y-10 pl-4 pb-4">
 
-
-                <!-- Expertise -->
-                <section>
-                    <h3
-                        class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-[40%] pb-1">
-                        Expertise</h3>
-                    <ul class="space-y-3 text-sm">
-                        <li>
-                            <strong class="block text-gray-900">Big Data & Processing</strong>
-                            <span class="text-gray-600">PySpark, Apache Spark, Databricks (<b>Delta Live Tables</b>,
-                                <b>Unity Catalog</b>), Delta Lake</span>
-                        </li>
-                        <li>
-                            <strong class="block text-gray-900">Cloud & Infrastructure</strong>
-                            <span class="text-gray-600">AWS (Glue, Step Functions, CloudFormation, DynamoDB), Azure
-                                (CosmosDB,
-                                Data Factory, Event Hubs), GCP(Firebase)</span>
-                        </li>
-                        <li>
-                            <strong class="block text-gray-900">Databases</strong>
-                            <span class="text-gray-600">PostgreSQL, MySQL, MongoDB</span>
-                        </li>
-                        <li>
-                            <strong class="block text-gray-900">Architecture & Patterns</strong>
-                            <span class="text-gray-600"><b>WAP</b>(Write-Audit-Publish), Medallion Architecture,
-                                Z-Ordering, Data Skipping, Salting, SCD(Slowly Changing Dimensions) Type 0/1/2/3</span>
-                        </li>
-                        <li>
-                            <strong class="block text-gray-900">Engineering & DevOps</strong>
-                            <span class="text-gray-600">Git, CI/CD (GitHub Actions), Docker, <b>Pytest</b></span>
+                <!-- Infosys — Primary Employer -->
+                <div class="relative page-safe">
+                    <div class="absolute -left-[28px] bg-teal-900 h-6 w-6 rounded-full border-4 border-white">
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                        <h3 class="text-lg font-bold text-gray-900">Infosys <span
+                                class="text-gray-400 font-normal">|</span> Specialist Programmer L2 <span
+                                class="text-gray-400 font-normal">|</span> Hyderabad</h3>
+                        <span class=" bg-teal-50 px-6 py-1 rounded-full text-xs font-bold text-teal-700 mt-1 sm:mt-0">
+                            Nov 2020 – Present
+                        </span>
+                    </div>
+                    <ul
+                        class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-teal-600 text-sm leading-relaxed">
+                        <li>Promoted to <b>Specialist Programmer L2</b> for owning complex,
+                            high-stakes capabilities end-to-end — from design through production
+                            delivery.</li>
+                        <li>Authored technical publications on <b>Medium.com</b> centered on Google Cloud
+                            Generative AI
+                            implementation and the application of low-level systems programming in large-scale
+                            data architectures.</li>
+                        <li>Recognized with multiple <b>MVP awards</b> for technical ownership of high-stakes
+                            deliverables, consistently shipping production-ready pipelines ahead of schedule.
                         </li>
                     </ul>
-                </section>
 
-                <!-- Education -->
-                <section>
-                    <h3
-                        class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-[40%] pb-1">
-                        Education
-                    </h3>
-                    <div class="flex flex-col gap-4">
-                        <div>
-                            <span class="block font-semibold text-gray-800 text-md leading-tight">Bachelor of Technology
-                                in <b>Computer Science
-                                    &amp; Engineering</b></span>
-                            <span class="block text-xs text-gray-600 mt-0.5">Jawaharlal Nehru
-                                Technological University, Kakinada (JNTUK)</span>
-                            <span class="block text-xs text-gray-400 mt-0.5 italic">2016 – 2020</span>
-                            <ul class="mt-1.5 space-y-1 text-xs text-gray-500 list-disc list-outside ml-3.5">
-                                <li>CGPA: <b>7.63</b>/10</li>
+                    <!-- Nested Client Sub-Sections -->
+                    <div class="relative border-l-2 border-gray-200 ml-3 space-y-8 pl-6 mt-4">
+
+                        <!-- Sub-Section 1: British Petroleum (BP) -->
+                        <div class="relative">
+                            <div
+                                class="absolute -left-[32px] top-[3px] bg-teal-700 h-4 w-4 rounded-full border-[3px] border-white">
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                                <p class="text-sm font-semibold text-gray-800"><b>British Petroleum (BP)</b> —
+                                    Energy <span class="text-gray-400 font-normal">|</span> Data Engineer
+                                    <span
+                                        class="ml-1.5 text-[0.6rem] font-bold bg-slate-100 text-slate-700 border border-slate-300 px-1.5 py-0.5 rounded uppercase tracking-wider align-middle">Engagement:
+                                        Energy Sector Outsourcing</span>
+                                </p>
+                                <span
+                                    class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded font-bold mt-1 sm:mt-0">
+                                    Feb 2025 – April 2026
+                                </span>
+                            </div>
+                            <p class="text-xs text-gray-500 italic mb-2">Consultant for Global Energy Data
+                                Platform specializing in high-throughput AWS data lakes.</p>
+                            <ul
+                                class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-teal-600 text-sm leading-relaxed">
+                                <li><b>Optimization:</b> Architected multi-stage <b>PySpark</b> ETL pipelines on
+                                    <b>AWS Glue</b>, processing multi-terabyte datasets. Utilized partition
+                                    pruning and broadcast joins to reduce cloud compute costs and execution time
+                                    by <b>30%</b>.
+                                </li>
+                                <li><b>Integrity:</b> Engineered automated validation frameworks within <b>CI/CD
+                                        pipelines</b>, eliminating manual SQL intervention and maintaining a
+                                    <b>0% defect injection rate</b> across dev/staging/prod environments.
+                                </li>
+                                <li><b>Orchestration:</b> Managed infrastructure-as-code via
+                                    <b>CloudFormation</b> to maintain <b>100% environment parity</b> across
+                                    global regions.
+                                </li>
+                            </ul>
+                            <div class="flex flex-wrap gap-1.5 mt-3">
+                                <span
+                                    class="text-xs bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 rounded-full font-medium">PySpark</span>
+                                <span
+                                    class="text-xs bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 rounded-full font-medium">AWS
+                                    Glue</span>
+                                <span
+                                    class="text-xs bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 rounded-full font-medium">AWS
+                                    Step Functions</span>
+                                <span
+                                    class="text-xs bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 rounded-full font-medium">S3</span>
+                                <span
+                                    class="text-xs bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 rounded-full font-medium">Aurora
+                                    PostgreSQL</span>
+                                <span
+                                    class="text-xs bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 rounded-full font-medium">CloudFormation</span>
+                                <span
+                                    class="text-xs bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 rounded-full font-medium">Azure
+                                    DevOps</span>
+                                <span
+                                    class="text-xs bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 rounded-full font-medium">CI/CD</span>
+                                <span
+                                    class="text-xs bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 rounded-full font-medium">Pytest</span>
+                            </div>
+                        </div>
+
+                        <!-- Sub-Section 2: Telstra -->
+                        <div class="relative">
+                            <div
+                                class="absolute -left-[32px] top-[3px] bg-gray-300 h-4 w-4 rounded-full border-[3px] border-white">
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                                <p class="text-sm font-semibold text-gray-800"><b>Telstra</b> —
+                                    Telecom <span class="text-gray-400 font-normal">|</span> Data Engineer
+                                    <span
+                                        class="ml-1.5 text-[0.6rem] font-bold bg-slate-100 text-slate-700 border border-slate-300 px-1.5 py-0.5 rounded uppercase tracking-wider align-middle">Engagement:
+                                        Telecom Data Migration</span>
+                                </p>
+                                <span
+                                    class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded font-bold mt-1 sm:mt-0">
+                                    Mar 2021 – Dec 2024
+                                </span>
+                            </div>
+                            <p class="text-xs text-gray-500 italic mb-2">Architected enterprise-scale telecom
+                                data migration from legacy systems to Databricks Lakehouse.</p>
+                            <ul
+                                class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-gray-400 text-sm leading-relaxed">
+                                <li><b>Migration:</b> Led the end-to-end migration of legacy reporting scripts
+                                    to <b>Databricks Runtime 13.3 LTS</b>, implementing source-to-target count
+                                    reconciliations to ensure <b>100% data fidelity</b>.</li>
+                                <li><b>Performance:</b> Implemented the <b>Write-Audit-Publish (WAP)</b> pattern
+                                    to prevent downstream data corruption, enabling real-time reporting via
+                                    <b>Azure Event Hubs</b>.
+                                </li>
+                                <li><b>Optimization:</b> Applied <b>Z-Ordering</b> and <b>Data Skipping</b> to
+                                    critical Gold-layer tables, resulting in a <b>40% improvement</b> in
+                                    analytical query performance.</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-1.5 mt-3">
+                                <span
+                                    class="text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full font-medium">PySpark</span>
+                                <span
+                                    class="text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full font-medium">Databricks
+                                    Runtime 13.3 LTS</span>
+                                <span
+                                    class="text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full font-medium">Delta
+                                    Lake</span>
+                                <span
+                                    class="text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full font-medium">Azure
+                                    ADF</span>
+                                <span
+                                    class="text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full font-medium">Azure
+                                    Synapse</span>
+                                <span
+                                    class="text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full font-medium">CosmosDB</span>
+                                <span
+                                    class="text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full font-medium">Azure
+                                    Event Hubs</span>
+                                <span
+                                    class="text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full font-medium">Azure
+                                    DevOps</span>
+                                <span
+                                    class="text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full font-medium">Pytest</span>
+                                <span
+                                    class="text-xs bg-gray-50 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full font-medium">Medallion
+                                    Architecture</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Developers@Work — Top-Level Parallel Entry -->
+                <div class="relative page-safe">
+                    <div class="absolute -left-[28px] bg-purple-500 h-6 w-6 rounded-full border-4 border-white"></div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                        <h3 class="text-base font-bold text-gray-900">Developers@Work
+                            <span class="text-gray-400 font-normal">|</span>
+                            <span class="text-base font-semibold text-gray-700"> Freelance Software Engineer &amp;
+                                Founder</span>
+                            <span
+                                class="ml-2 text-[0.6rem] font-bold bg-purple-100 text-purple-700 border border-purple-200 px-1.5 py-0.5 rounded uppercase tracking-wider align-middle">Freelance</span>
+                        </h3>
+                        <span class="bg-teal-50 px-4 py-1 rounded-full text-xs font-bold text-teal-700 mt-1 sm:mt-0">Jan
+                            2018 – Feb 2021</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Professional freelance alias for software consulting and
+                        technical community building (Active since 2014).</p>
+                </div>
+
+                <!-- KK Consultancy — Top-Level Parallel Entry -->
+                <div class="relative page-safe">
+                    <div class="absolute -left-[28px] bg-amber-500 h-6 w-6 rounded-full border-4 border-white"></div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                        <h3 class="text-base font-bold text-gray-900">KK Consultancy
+                            <span class="text-gray-400 font-normal">|</span>
+                            <span class="text-base font-semibold text-gray-700"> Full-Stack Developer Intern</span>
+                            <span
+                                class="ml-2 text-[0.6rem] font-bold bg-amber-100 text-amber-700 border border-amber-200 px-1.5 py-0.5 rounded uppercase tracking-wider align-middle">Internship</span>
+                        </h3>
+                        <span class="bg-teal-50 px-4 py-1 rounded-full text-xs font-bold text-teal-700 mt-1 sm:mt-0">May
+                            2018 – Feb 2021</span>
+                    </div>
+                    <p class="text-sm text-gray-500 italic">Undergraduate internship focused on full-stack web
+                        automation and Firebase-based authentication modules.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Projects (New Section) -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-teal-900 p-2 rounded-lg text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
+                        </path>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-teal-900 uppercase tracking-wide">Technical Projects</h2>
+            </div>
+
+            <div class="relative border-l-2 border-gray-200 space-y-6 pl-4 pb-4">
+                <!-- Project 1 -->
+                <div class="relative page-safe">
+                    <div class="absolute -left-[28px] bg-teal-900 h-6 w-6 rounded-full border-4 border-white">
+                    </div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-gray-900">Retail360 Lakehouse <span
+                                class="text-sm font-normal text-teal-700 italic">— Production-grade Internal
+                                Framework</span></h3>
+                        <span
+                            class="bg-teal-50 text-teal-800 text-xs font-bold px-2 py-1 rounded border border-teal-100">Databricks</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3 italic">Designed a production-grade Lakehouse
+                        architecture (Bronze/Silver/Gold) using
+                        <b>Databricks Auto Loader</b> and <b>Delta Lake</b> for enterprise analytical workloads.
+                    </p>
+                    <ul
+                        class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-teal-600 text-sm leading-relaxed">
+                        <li>Improved query latency by ~40% using Z-Ordering and Data Skipping.</li>
+                        <li>Implemented Salted Join strategies to handle data skew in high-volume joins.</li>
+                        <li>Built a Write-Audit-Publish (WAP) pattern with data quality checks in PySpark
+                            to prevent schema drift and ensure downstream data integrity.</li>
+                    </ul>
+                </div>
+
+                <!-- Projects 2 & 3: Technical Breadth (compact side-by-side cards) -->
+                <div class="relative page-safe">
+                    <div class="absolute -left-[28px] bg-slate-400 h-6 w-6 rounded-full border-4 border-white"></div>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Technical Breadth — Game,
+                        System Design &amp; Web</p>
+                    <div class="grid grid-cols-1 gap-4">
+                        <!-- Eggventure 3D -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-sm font-bold text-gray-900">Eggventure 3D <span
+                                        class="text-gray-400 font-normal italic text-xs">— FPS Simulation</span></h4>
+                                <span
+                                    class="bg-slate-100 text-slate-600 text-[0.6rem] font-bold px-2 py-0.5 rounded border border-slate-200">C++
+                                    / Unity</span>
+                            </div>
+                            <ul class="text-xs text-gray-600 space-y-1 leading-relaxed">
+                                <li>▸ <b>Object Pooling</b> for 60+ FPS projectile management, reducing GC overhead.
+                                </li>
+                                <li>▸ <b>State Machine</b> AI (Aggressive / Neutral / Passive) + <b>Observer</b> &amp;
+                                    <b>Singleton</b> patterns.
+                                </li>
                             </ul>
                         </div>
-                        <div>
-                            <span class="block font-semibold text-gray-800 text-md leading-tight">Specialized Training
-                                in <b>Full-Stack Game Development</b></span>
-                            <span class="block text-xs text-gray-600 mt-0.5">outscal.com</span>
-                            <span class="block text-xs text-gray-400 mt-0.5 italic">Mar 2023 – Nov 2023</span>
-                            <ul class="mt-1.5 space-y-1 text-xs text-gray-500 list-disc list-outside ml-3.5">
-                                <li>Developed high-performance game logic in C++ and Unity, focusing on memory
-                                    optimization and real-time state management.</li>
-                                <li>Applied design patterns (Singleton, Pooling, State, Observer) to build scalable,
-                                    maintainable
-                                    game architecture.</li>
+                        <!-- Harmony Keeper 2D -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-sm font-bold text-gray-900">Harmony Keeper 2D <span
+                                        class="text-gray-400 font-normal italic text-xs">— Modular Framework</span></h4>
+                                <span
+                                    class="bg-slate-100 text-slate-600 text-[0.6rem] font-bold px-2 py-0.5 rounded border border-slate-200">C#
+                                    / Unity</span>
+                            </div>
+                            <ul class="text-xs text-gray-600 space-y-1 leading-relaxed">
+                                <li>▸ <b>MVC Architecture</b> for clean separation of concerns and code modularity.</li>
+                                <li>▸ <b>Observer Pattern</b> for decoupled real-time player progress tracking.</li>
                             </ul>
+                        </div>
+                        <!-- Full-Stack Web Projects (KK Consultancy) -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3">
+                            <div class="flex justify-between items-start mb-1">
+                                <h4 class="text-sm font-bold text-gray-900">Full-Stack Web Projects <span
+                                        class="text-gray-400 font-normal italic text-xs">— KK Consultancy</span></h4>
+                                <span
+                                    class="bg-amber-50 text-amber-700 text-[0.6rem] font-bold px-2 py-0.5 rounded border border-amber-200">Firebase
+                                    / JS / PHP</span>
+                            </div>
+                            <div class="space-y-2 mt-1 text-xs text-gray-600">
+                                <div>
+                                    <span class="font-bold text-gray-800">Maha Lakshmi Finance (MLF)</span>
+                                    <p class="mt-0.5 leading-relaxed">A comprehensive financial automation suite
+                                        managing multi-entity workflows, customer ledgers, and inventory tracking.</p>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-800">RedAnts (SITE)</span>
+                                    <p class="mt-0.5 leading-relaxed">An automated academic management system for SASI
+                                        Institute, streamlining community registration, marks tracking, and dynamic
+                                        reporting.</p>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-800">Sparkle Twilight / Auth-Module</span>
+                                    <p class="mt-0.5 leading-relaxed">A reusable, high-security Authentication &amp;
+                                        Authorization framework built on Firebase for enterprise-wide integration.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </section>
+                </div>
+            </div>
+        </section>
 
+        <!-- Education & Certifications (Horizontal) -->
+        <section class="mb-6 page-safe">
+            <div class="flex items-center gap-2 mb-4">
+                <div class="h-px flex-1 bg-teal-900/10"></div>
+                <h2 class="text-xs font-bold text-teal-900 uppercase tracking-widest px-2">Education &amp;
+                    Certifications</h2>
+                <div class="h-px flex-1 bg-teal-900/10"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Education -->
+                <div class="flex flex-col gap-3">
+                    <p class="text-[0.6rem] font-bold text-teal-900 uppercase tracking-widest mb-1">Education</p>
+                    <!-- JNTUK -->
+                    <div class="flex items-start gap-3 bg-teal-50 border-l-4 border-teal-900 rounded-r px-3 py-2">
+                        <div>
+                            <span class="block font-semibold text-gray-800 text-sm leading-tight">B.Tech in <b>Computer
+                                    Science &amp; Engineering</b></span>
+                            <span class="block text-xs text-gray-500 mt-0.5">JNTUK &nbsp;&middot;&nbsp; 2016 – 2020
+                                &nbsp;&middot;&nbsp; CGPA: <b>7.63</b></span>
+                        </div>
+                    </div>
+                    <!-- Outscal -->
+                    <div class="flex items-start gap-3 bg-teal-50 border-l-4 border-teal-700 rounded-r px-3 py-2">
+                        <div>
+                            <span class="block font-semibold text-gray-800 text-sm leading-tight">Specialized Training
+                                in Full-Stack Game Development</span>
+                            <span class="block text-xs text-gray-500 mt-0.5">Outscal &nbsp;&middot;&nbsp; 2023
+                                &nbsp;&middot;&nbsp; Focus: <b>C++, Unity &amp; Design Patterns</b></span>
+                            <span class="block text-xs text-gray-400 mt-0.5 italic">Applied memory management and
+                                high-performance logic in C#.</span>
+                        </div>
+                    </div>
+                </div>
                 <!-- Certifications -->
-                <section>
-                    <h3
-                        class="text-teal-900 font-bold uppercase tracking-wider mb-4 text-lg border-b-2 border-teal-900 w-[40%] pb-1">
-                        Certifications
-                    </h3>
-                    <div class="flex flex-col gap-4">
-                        <div class="flex items-start gap-3">
+                <div>
+                    <p class="text-[0.6rem] font-bold text-teal-900 uppercase tracking-widest mb-3">Certifications</p>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex items-center gap-3">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
-                                alt="Microsoft" class="w-5 h-5 object-contain mt-0.5 opacity-80">
+                                alt="Microsoft" class="w-5 h-5 object-contain opacity-80 shrink-0">
                             <div>
                                 <span class="block font-semibold text-gray-800 text-sm leading-tight">Azure Data
                                     Engineer Associate</span>
                                 <span class="text-xs text-gray-500">Microsoft Certified</span>
                             </div>
                         </div>
-                        <div class="flex items-start gap-3">
+                        <div class="flex items-center gap-3">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg"
-                                alt="Google Cloud" class="w-5 h-5 object-contain mt-0.5 opacity-80">
+                                alt="Google Cloud" class="w-5 h-5 object-contain opacity-80 shrink-0">
                             <div>
                                 <span class="block font-semibold text-gray-800 text-sm leading-tight">Generative AI
                                     Leader</span>
                                 <span class="text-xs text-gray-500">Google Cloud</span>
                             </div>
                         </div>
-                        <div class="flex items-start gap-3">
+                        <div class="flex items-center gap-3">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg"
-                                alt="MongoDB" class="w-5 h-5 object-contain mt-0.5 opacity-80">
+                                alt="MongoDB" class="w-5 h-5 object-contain opacity-80 shrink-0">
                             <div>
                                 <span class="block font-semibold text-gray-800 text-sm leading-tight">MongoDB for
                                     Javascript Developers</span>
                                 <span class="text-xs text-gray-500">MongoDB</span>
                             </div>
                         </div>
+                        <!-- GeeksforGeeks -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded bg-green-600 flex items-center justify-center shrink-0">
+                                <span class="text-white font-extrabold text-[0.55rem] leading-none">GFG</span>
+                            </div>
+                            <div>
+                                <span class="block font-semibold text-gray-800 text-sm leading-tight">System Design
+                                    &amp; Architecture</span>
+                                <span class="text-xs text-gray-500">GeeksforGeeks &nbsp;&middot;&nbsp; Advanced
+                                    Course</span>
+                            </div>
+                        </div>
                     </div>
-                </section>
-
+                </div>
             </div>
-
-            <!-- RIGHT COLUMN (Main Content) -->
-            <div class="md:col-span-8 flex flex-col gap-6">
-
-                <!-- Experience -->
-                <section>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="bg-teal-900 p-2 rounded-lg text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                            </svg>
-                        </div>
-                        <h2 class="text-2xl font-bold text-teal-900 uppercase tracking-wide">Experience</h2>
-                    </div>
-
-                    <div class="relative border-l-2 border-gray-200 space-y-10 pl-4 pb-4">
-
-                        <!-- Infosys — Primary Employer -->
-                        <div class="relative">
-                            <div class="absolute -left-[28px] bg-teal-900 h-6 w-6 rounded-full border-4 border-white">
-                            </div>
-                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                                <h3 class="text-lg font-bold text-gray-900">Infosys <span
-                                        class="text-gray-400 font-normal">|</span> Specialist Programmer L2 <span
-                                        class="text-gray-400 font-normal">|</span> Hyderabad</h3>
-                                <span
-                                    class=" bg-teal-50 px-6 py-1 rounded-full text-xs font-bold text-teal-700 mt-1 sm:mt-0">
-                                    Nov 2020 – Present
-                                </span>
-                            </div>
-                            <ul
-                                class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-teal-600 text-sm leading-relaxed">
-                                <li>Promoted to <b>Specialist Programmer L2</b> for owning complex,
-                                    high-stakes capabilities end-to-end — from design through production
-                                    delivery.</li>
-                                <li>Authored technical publications on <b>Medium.com</b> centered on Google Cloud
-                                    Generative AI
-                                    implementation and the application of low-level systems programming in large-scale
-                                    data architectures.</li>
-                                <li>Recognized with multiple <b>MVP awards</b> for technical ownership of high-stakes
-                                    deliverables, consistently shipping production-ready pipelines ahead of schedule.
-                                </li>
-                            </ul>
-
-                            <!-- Nested Client Sub-Sections -->
-                            <div class="relative border-l-2 border-gray-200 ml-3 space-y-8 pl-6 mt-4">
-
-                                <!-- Sub-Section 1: British Petroleum (BP) -->
-                                <div class="relative">
-                                    <div
-                                        class="absolute -left-[32px] top-[3px] bg-teal-700 h-4 w-4 rounded-full border-[3px] border-white">
-                                    </div>
-                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                                        <p class="text-sm font-semibold text-gray-800"><b>British Petroleum (BP)</b> —
-                                            Energy <span class="text-gray-400 font-normal">|</span> Data Engineer</p>
-                                        <span
-                                            class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded font-bold mt-1 sm:mt-0">
-                                            Feb 2025 – Mar 2026
-                                        </span>
-                                    </div>
-                                    <ul
-                                        class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-teal-600 text-sm leading-relaxed">
-                                        <li>Built automated reference data validation scripts and wired them
-                                            into <b>CI/CD pipelines</b>, eliminating manual SQL checks and
-                                            maintaining a <b>0% defect injection rate</b> across environments.
-                                        </li>
-                                        <li>Delivered the <b>PySpark</b> ETL pipeline on <b>AWS Glue</b>
-                                            and <b>Step Functions</b>, finishing within <b>80%</b> of estimated
-                                            effort.</li>
-                                        <li>Managed infrastructure-as-code with <b>CloudFormation</b> and
-                                            <b>Git</b>, cutting deployment drift and keeping environments
-                                            consistent across dev, staging, and prod.
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <!-- Sub-Section 2: Telstra -->
-                                <div class="relative">
-                                    <div
-                                        class="absolute -left-[32px] top-[3px] bg-gray-300 h-4 w-4 rounded-full border-[3px] border-white">
-                                    </div>
-                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                                        <p class="text-sm font-semibold text-gray-800"><b>Telstra</b> —
-                                            Telecom<span class="text-gray-400 font-normal">|</span> Data
-                                            Engineer</p>
-                                        <span
-                                            class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded font-bold mt-1 sm:mt-0">
-                                            Mar 2021 – Dec 2024
-                                        </span>
-                                    </div>
-                                    <ul
-                                        class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-gray-400 text-sm leading-relaxed">
-                                        <li>Architected the <b>ingestion flow</b> and migrated legacy
-                                            scripts to <b>Databricks Runtime 13.3 LTS</b>, validating every run with
-                                            source-to-target count reconciliations.
-                                        </li>
-                                        <li>Implemented the <b>Write-Audit-Publish (WAP)</b> pattern paired
-                                            with a <b>Pytest</b> suite, achieving a <b>0% defect injection
-                                                rate</b> across all migration phases.</li>
-                                        <li>Integrated <b>Azure Event Hubs</b> for real-time reporting and
-                                            ran regression tests against historical samples to catch gaps
-                                            before production go-live.</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                <!-- Projects (New Section) -->
-                <section>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="bg-teal-900 p-2 rounded-lg text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
-                                </path>
-                            </svg>
-                        </div>
-                        <h2 class="text-2xl font-bold text-teal-900 uppercase tracking-wide">Technical Projects</h2>
-                    </div>
-
-                    <div class="relative border-l-2 border-gray-200 space-y-10 pl-4 pb-4">
-                        <!-- Project 1 -->
-                        <div class="relative">
-                            <div class="absolute -left-[28px] bg-teal-900 h-6 w-6 rounded-full border-4 border-white">
-                            </div>
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-bold text-gray-900">Retail360 Lakehouse</h3>
-                                <span
-                                    class="bg-teal-50 text-teal-800 text-xs font-bold px-2 py-1 rounded border border-teal-100">Databricks</span>
-                            </div>
-                            <p class="text-sm text-gray-600 mb-3 italic">Designed a production-grade Lakehouse
-                                architecture (Bronze/Silver/Gold) using
-                                Databricks Auto Loader and Delta Lake for analytical workloads.</p>
-                            <ul
-                                class="space-y-2 text-gray-600 list-disc list-outside ml-4 marker:text-teal-600 text-sm leading-relaxed">
-                                <li>Improved query latency by ~40% using Z-Ordering and Data Skipping.</li>
-                                <li>Implemented Salted Join strategies to handle data skew in high-volume joins.</li>
-                                <li>Built a Write-Audit-Publish (WAP) pattern with data quality checks in PySpark
-                                    to prevent schema drift and ensure downstream data integrity.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-        </div>
+        </section>
 
         <!-- Decoration / Footer line -->
-        <div class="absolute bottom-0 left-0 w-full h-5 bg-teal-900 text-center text-[.6px] text-white">
-            <strong>
-                Data Engineering, Big Data, ETL, ELT, Data Lakehouse, Distributed Computing, Scalability, High
-                Availability, Data Integrity, Data Governance, Performance Tuning, Query Optimization, Design Patterns:
-                Singleton, Factory, Observer, Strategy, Decorator, State, Object Pooling, Data Patterns:
-                Write-Audit-Publish (WAP), Medallion Architecture (Bronze/Silver/Gold), Star Schema, Snowflake Schema,
-                Slowly Changing Dimensions (SCD), ACID Compliance, CAP Theorem, Tools & Frameworks: Apache Spark,
-                PySpark, Delta Lake, Databricks, AWS Glue, AWS Step Functions, Azure Event Hubs, CloudFormation,
-                Terraform, Docker, Kubernetes, CI/CD, Pytest, Unit Testing, Integration Testing, Regression Testing,
-                Version Control, Git, GitHub, Bitbucket.
-            </strong>
-        </div>
+        <div class="decoration-footer absolute bottom-0 left-0 w-full h-2 bg-teal-900"></div>
     </main>
 
     <!-- Print Button -->
@@ -447,10 +782,12 @@
                 '<!DOCTYPE html><html lang="en"><head>' +
                 headContent +
                 '<style>' +
-                /* Force desktop grid layout regardless of viewport */
-                '.grid { display: grid !important; grid-template-columns: repeat(12, minmax(0, 1fr)) !important; }' +
-                '.md\\:col-span-4 { grid-column: span 4 / span 4 !important; }' +
-                '.md\\:col-span-8 { grid-column: span 8 / span 8 !important; }' +
+                /* Force responsive grids to render at desktop sizes in print iframe */
+                '.resume-container { display: block !important; width: 210mm !important; box-shadow: none !important; }' +
+                '.competencies-grid { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }' +
+                '.md\\:grid-cols-2 { display: grid !important; grid-template-columns: 1fr 1fr !important; }' +
+                '.md\\:grid-cols-3 { display: grid !important; grid-template-columns: 1fr !important; }' +
+                '.md\\:grid-cols-4 { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }' +
                 '.sm\\:flex-row { flex-direction: row !important; }' +
                 '.sm\\:justify-between { justify-content: space-between !important; }' +
                 '.sm\\:items-baseline { align-items: baseline !important; }' +
@@ -465,7 +802,7 @@
                 setTimeout(function () {
                     iframe.contentWindow.focus();
                     iframe.contentWindow.print();
-                }, 1500);
+                }, 2500);
             };
         }
     </script>
