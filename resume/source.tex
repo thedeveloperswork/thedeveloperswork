@@ -1,0 +1,191 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+
+% --- Formatting Sections ---
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{1ex}{1ex}
+
+% Remove page numbers
+\pagestyle{empty}
+
+\begin{document}
+
+% ==========================================
+% HEADER
+% ==========================================
+\begin{center}
+    {\Huge \textbf{VIJAYA GOPINADH REDDY VELAGALA}} \\ \vspace{4pt}
+    Hyderabad, India | +91 6281762528 | opportunities@thedevelopers.work \\ \vspace{2pt}
+    \href{https://linkedin.com/in/thedeveloperswork}{linkedin.com/in/thedeveloperswork} | \href{https://github.com/thedeveloperswork}{github.com/thedeveloperswork} | \href{https://thedevelopers.work}{thedevelopers.work}
+\end{center}
+
+% ==========================================
+% SUMMARY (GLOBAL OVERVIEW)
+% ==========================================
+\section{Summary}
+\noindent Multidisciplinary Senior Data Engineer with 5+ years of experience architecting fault-tolerant, petabyte-scale distributed systems. Uniquely bridges the gap between low-level systems programming (C++/Unity) and modern Data Engineering (PySpark/Databricks). Specialized in deploying Medallion Lakehouse architectures, Write-Audit-Publish (WAP) validation patterns, and serverless cloud ecosystems (AWS/Azure). Proven track record of leveraging robust software engineering principles—such as microservices, state management, and CI/CD automation—to slash compute latency and guarantee 100\% data integrity in enterprise environments.
+
+% ==========================================
+% TECHNICAL ARSENAL
+% ==========================================
+\section{Technical Arsenal}
+\begin{itemize}[leftmargin=0.15in, label={}]
+    \item \textbf{Big Data \& Cloud (Active | 2021--Present):} PySpark, Databricks (Delta Lake), AWS (Glue, Step Functions), Azure (Data Factory, Synapse, Event Hubs), SQL, Python
+    \item \textbf{Architecture \& System Design:} Medallion Architecture, WAP Pattern, Z-Ordering, High/Low-Level System Design, Design Patterns (MVC, Singleton, Observer, State)
+    \item \textbf{Systems \& Full-Stack (Foundational | 2018--2021):} C++, C\#, JavaScript, ReactJS, NodeJS, PHP, Unity, Microservices, CI/CD (GitHub Actions), Docker, Terraform, Git
+\end{itemize}
+
+% ==========================================
+% EXPERIENCE (Core & Versatile)
+% ==========================================
+\section{Experience}
+
+\noindent \textbf{Infosys (Client: British Petroleum)} \hfill Feb 2025 -- Present \\
+\textit{Specialist Programmer L2 | Senior Data Engineer} \hfill Hyderabad, India
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Engineered an automated Pytest-driven validation framework within CI/CD pipelines, eliminating manual SQL checks and achieving a 0\% defect injection rate for mission-critical reference data.
+    \item Architected serverless PySpark ETL pipelines utilizing AWS Glue and Step Functions, reliably processing multi-terabyte datasets while reducing execution time by 30\%.
+    \item Standardized infrastructure deployments across Dev, Staging, and Prod environments using AWS CloudFormation, ensuring 100\% environment parity across global regions.
+\end{itemize}
+
+\vspace{4pt}
+
+\noindent \textbf{Infosys (Client: Telstra)} \hfill Mar 2021 -- Dec 2024 \\
+\textit{Specialist Programmer L1 | Data Engineer} \hfill Hyderabad, India
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Slashed Azure Data Factory (ADF) pipeline execution time by over 60\% (from 2 hours to 45 minutes) by optimizing Databricks-to-Synapse reads via pushdown predicates and network bottleneck mitigation.
+    \item Led the migration of legacy ingestion workflows to Databricks Runtime 13.3 LTS within a B2B Medallion architecture, engineering source-to-target reconciliation checks for TB-scale data.
+    \item Pioneered the Write-Audit-Publish (WAP) architecture for enterprise data lakes, preventing downstream data corruption and maintaining a 0\% defect rate.
+    \item Integrated Azure Event Hubs for real-time reporting pipelines, improving analytical query performance by 40\% via Z-Ordering on Gold-layer tables.
+\end{itemize}
+
+\vspace{4pt}
+
+% --- VERSATILE HISTORY ---
+
+\noindent \textbf{Infosys} \hfill Nov 2020 -- Feb 2021 \\
+\textit{Digital Specialist Engineer | Systems Engineer} \hfill Hyderabad, India
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Collaborated with cross-functional teams to design data-driven solutions leveraging Azure Cloud and PySpark, earning Team MVP recognition for problem-solving.
+    \item Developed proficiency in core Big Data technologies (Hadoop, Spark, Hive) via rigorous enterprise training.
+\end{itemize}
+
+\vspace{4pt}
+
+\noindent \textbf{Developers@Work} \hfill Jan 2018 -- Feb 2021 \\
+\textit{Freelance Software Engineer \& Content Creator} \hfill Remote
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Directed software consulting and technical community building (YouTube/Twitch), executing full-stack architectures for diverse client portfolios.
+\end{itemize}
+
+\vspace{4pt}
+
+\noindent \textbf{KK Consultancy} \hfill May 2018 -- Feb 2021 \\
+\textit{Full-Stack Developer Intern} \hfill Remote
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Focused on full-stack web automation, building reusable Auth/AuthZ middleware with JWT and Firebase authentication modules.
+\end{itemize}
+
+% ==========================================
+% TECHNICAL PROJECTS
+% ==========================================
+\section{Technical Projects}
+
+% --- DATA & ML PROJECTS ---
+\noindent \textbf{Retail360 Enterprise Lakehouse} \hfill \textit{Databricks, Delta Lake, PySpark}
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Designed a production-grade Medallion Lakehouse architecture utilizing Databricks Auto Loader and Delta Lake.
+    \item Decreased analytical query latency by $\sim$40\% by implementing advanced Z-Ordering and Data Skipping techniques.
+    \item Engineered Salted Join strategies in PySpark to efficiently mitigate data skew in high-volume distributed joins.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent \textbf{Movie Recommendation System} \hfill \textit{Python, Machine Learning}
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Developed a recommendation engine combining Supervised and Unsupervised learning (K-Means \& Naive-Bayes) to improve accuracy of content suggestions based on user watch history.
+\end{itemize}
+
+\vspace{4pt}
+
+% --- FULL-STACK & ALGORITHMS ---
+\noindent \textbf{AAA (Academics Administration Automation)} \hfill \textit{Microservices Architecture}
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Architected a management application for an educational institution, migrating from monolithic paradigms to a scalable Microservices architecture.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent \textbf{Sparkle Twilight} \hfill \textit{ReactJS, NodeJS, ExpressJS, Firebase}
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Built a 3-tier architecture web application managing billing and appointments for business management.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent \textbf{Maha Lakshmi Finance} \hfill \textit{PHP, MySQL, HTML, CSS}
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Developed a full-stack LAMP web application for managing multi-entity financial ledgers and transaction workflows.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent \textbf{Red Ants (SITE Management)} \hfill \textit{PHP, MySQL, JavaScript}
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Automated academic registration, attendance tracking, and administrative reporting workflows for educational institutions.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent \textbf{Evolved Pattern Matching (Rabin-Karp)} \hfill \textit{Algorithm Optimization}
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Optimized the Rabin-Karp algorithm by verifying remainder/quotient equivalence, eliminating the need to compute spurious hits and accelerating pattern matching.
+\end{itemize}
+
+\vspace{4pt}
+
+% --- GAME DEVELOPMENT ---
+\noindent \textbf{Eggventure 3D (FPS Simulation)} \hfill \textit{C++, Unity, Design Patterns}
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Engineered Object Pooling for 60+ FPS projectile management, aggressively reducing Garbage Collection (GC) overhead.
+    \item Implemented complex State Machine AI for dynamic enemy behavior scaling (Aggressive/Neutral/Passive).
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent \textbf{Harmony Keeper 2D} \hfill \textit{C\#, Unity}
+\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+    \item Architected modular game logic utilizing MVC architectures and the Observer pattern for decoupled, scalable real-time state tracking.
+\end{itemize}
+
+% ==========================================
+% EDUCATION
+% ==========================================
+\section{Education}
+\noindent \textbf{B.Tech in Computer Science \& Engineering} \hfill 2016 -- 2020 \\
+\textit{Sasi Institute of Technology \& Engineering (JNTUK)} \hfill CGPA: 7.63/10
+
+% ==========================================
+% OFFICIAL CERTIFICATIONS
+% ==========================================
+\section{Official Certifications}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+    \item \textbf{Microsoft:} Azure Data Engineer Associate (Expires: Jan 2026)
+    \item \textbf{Google Cloud:} Generative AI Leader Certification (Expires: Sep 2028)
+    \item \textbf{Systems \& Engineering:} Infosys Certified Software Programmer, HackerRank Core Accreditations (SQL, Python, Java, Node, React, JavaScript, REST API)
+\end{itemize}
+
+% ==========================================
+% PROFESSIONAL DEVELOPMENT & COURSES
+% ==========================================
+\section{Professional Development \& Courses}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+    \item \textbf{Cloud \& Architecture:} Ultimate AWS Certified Solutions Architect Associate SAA-C03 (Udemy), System Design (GeeksforGeeks).
+    \item \textbf{Data \& AI:} The Complete dbt Bootcamp (Udemy), Databricks Certified Data Engineer Prep (Udemy), Text Prompt Engineering \& Real World AI Apps (Google), MongoDB Basics, MongoDB for Javascript Developers.
+    \item \textbf{Specialized Training:} Full-Stack Game Development (Outscal) -- Focus: C++, Unity, MVC, Memory Management.
+\end{itemize}
+
+\end{document}
