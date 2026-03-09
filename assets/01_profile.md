@@ -18,8 +18,8 @@ Multidisciplinary Senior Data Engineer with 5+ years of experience architecting 
 
 **Data Processing & Compute**
 * PySpark [Active | Feb 2025 - Present]
-* Apache Spark [Active | 2026]
-* Databricks / Delta Lake [Last Used | Dec 2024]
+* Apache Spark [Active | Jan 2026 - Present]
+* Databricks / Delta Lake [Active | Jan 2026 - Present]
 * Flink [Last Used | 2024]
 
 **Cloud Ecosystem (AWS & Azure)**
@@ -27,20 +27,20 @@ Multidisciplinary Senior Data Engineer with 5+ years of experience architecting 
 * Azure: Data Factory (ADF), Synapse, CosmosDB, Event Hubs [Last Used | Dec 2024]
 
 **Architecture & Patterns**
-* Lakehouse / Medallion Architecture [Active | 2026]
-* Write-Audit-Publish (WAP) Pattern [Active | 2026]
-* Z-Ordering, Data Skipping, Salted Joins [Last Used | 2024]
+* Lakehouse / Medallion Architecture [Active | Jan 2026 - Present]
+* Write-Audit-Publish (WAP) Pattern [Active | Jan 2026 - Present]
+* Z-Ordering, Data Skipping, Salted Joins [Active | Jan 2026 - Present]
 * High/Low-Level System Design [Active]
-* Design Patterns: MVC, Singleton, Observer, State Machine [Last Used | Nov 2023]
+* Design Patterns: MVC, Singleton, Observer, State Machine [Last Used | 2024]
 
 **DevOps, Testing & Infrastructure**
 * Pytest / Automated Validation Frameworks [Active | Feb 2025 - Present]
-* CI/CD (GitHub Actions, Azure DevOps) [Active | 2026]
+* CI/CD (GitHub Actions, Azure DevOps) [Active | Feb 2025 - Present]
 * Infrastructure-as-Code (CloudFormation, Terraform) [Active | Feb 2025 - Present]
-* Docker / Git [Active | 2026]
+* Docker / Git [Active | Jan 2026 - Present]
 
 **Foundational Programming & Full-Stack**
-* Python, SQL [Active | 2026]
-* C++, C#, Unity [Last Used | Nov 2023]
+* Python, SQL [Active | Jan 2026 - Present]
+* C++, C#, Unity [Last Used | 2024]
 * JavaScript, ReactJS, NodeJS, Firebase [Last Used | Feb 2021]
 * PHP, MySQL, HTML/CSS [Last Used | Feb 2021]
