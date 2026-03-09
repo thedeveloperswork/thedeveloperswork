@@ -31,6 +31,8 @@ export interface Education {
     institution: string;
     cgpa: string;
     dates: string;
+    duration?: string;
+    timeline?: string;
     certifications: string[];
     training: string[];
     development: string[];
@@ -159,19 +161,36 @@ export function getEducation(): Education {
         if (line.startsWith('## ')) currentSection = line.replace('## ', '').split(' ')[0];
         else if (line === '') return;
         else if (currentSection === 'DEGREE') {
-            if (line.startsWith('**')) {
-                const parts = line.split('|');
-                edu.degree = parts[0].replace(/\*\*/g, '').trim();
-                edu.dates = parts.length > 1 ? parts[1].trim() : '';
-            } else if (line.startsWith('*') && !line.startsWith('**')) {
-                const parts = line.split('|');
-                edu.institution = parts[0].replace(/\*/g, '').trim();
-                edu.cgpa = parts.length > 1 ? parts[1].replace('CGPA:', '').trim() : '';
+            if (line.startsWith('### ')) {
+                edu.degree = line.replace('### ', '').trim();
+            } else if (line.startsWith('* **Field**:')) {
+                edu.degree += ' in ' + line.replace('* **Field**:', '').trim();
+            } else if (line.startsWith('* **University**:')) {
+                const uni = line.replace('* **University**:', '').trim();
+                edu.institution = edu.institution ? `${edu.institution} (${uni})` : uni;
+            } else if (line.startsWith('* **College**:')) {
+                const college = line.replace('* **College**:', '').trim();
+                edu.institution = edu.institution ? `${college} - ${edu.institution}` : college;
+            } else if (line.startsWith('* **CGPA**:')) {
+                edu.cgpa = line.replace('* **CGPA**:', '').trim();
+            } else if (line.startsWith('* **Duration:**')) {
+                edu.duration = line.replace('* **Duration:**', '').trim();
+            } else if (line.startsWith('* **Timeline:**')) {
+                edu.timeline = line.replace('* **Timeline:**', '').trim();
+                edu.dates = edu.timeline; // fallback mapping
             }
         } else if (currentSection.includes('OFFICIAL') && line.startsWith('* ')) {
             edu.certifications.push(line.replace('* ', '').replace(/\*\*/g, ''));
-        } else if (currentSection.includes('TRAINING') && line.startsWith('* ')) {
-            edu.training.push(line.replace('* ', '').replace(/\*\*/g, ''));
+        } else if (currentSection.includes('TRAINING')) {
+            if (line.startsWith('### ')) {
+                edu.training.push(line.replace('### ', '').trim());
+            } else if (line.startsWith('* ')) {
+                if (edu.training.length > 0) {
+                    edu.training[edu.training.length - 1] += ' | ' + line.replace('* ', '').replace(/\*\*/g, '').trim();
+                } else {
+                    edu.training.push(line.replace('* ', '').replace(/\*\*/g, '').trim());
+                }
+            }
         } else if (currentSection.includes('PROFESSIONAL') && line.startsWith('* ')) {
             edu.development.push(line.replace('* ', '').replace(/\*\*/g, ''));
         }

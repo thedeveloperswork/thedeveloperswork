@@ -39,3 +39,7 @@ You operate by digesting the following modular data sources from the `assets/` d
 ### Step 4: Deployment & Styling
 - Apply premium CSS styling components, ensuring the layout is fully responsive (mobile-first approach).
 - Output the fully functional web application code, ready for static hosting deployment (e.g., Vercel, GitHub Pages), ensuring dynamic SEO meta tags are generated per page.
+
+### Step 5: Advanced Interactive Requirements
+- **Data Densification via Expansion**: Large bullet lists (like Experience and Projects) should be condensed natively. Require hover or explicit `Pin` button clicks to reveal content via smooth CSS transitions.
+- **Smart Parsers & Vendor Integration**: Markdown parsers must securely strip rogue markdown symbols (`**`, etc.) before rendering text, whilst integrating directly mapped vendor logos from `Lucide-React` or remote SVG providers based on dynamic string matching in `Education` and `TechnicalArsenal`.

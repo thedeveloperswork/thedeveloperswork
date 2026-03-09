@@ -20,14 +20,23 @@ export default function Skills({ arsenal }: { arsenal: Record<string, string[]> 
                                 const skillName = match ? match[1].trim() : skill;
                                 const status = match && match[2] ? match[2].trim() : null;
 
+                                const isActive = status && (status.toLowerCase().includes('present') || status.toLowerCase().includes('active'));
+
                                 return (
                                     <div
                                         key={`${skill}-${sIdx}`}
-                                        className="group relative flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm transition-all hover:bg-sky-500/10 hover:border-sky-500/30 font-medium"
+                                        className={`group relative flex items-center gap-3 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 cursor-default
+                                            ${isActive
+                                                ? 'bg-sky-500/20 border border-sky-400/50 text-sky-200 hover:bg-sky-400 hover:text-black hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(56,189,248,0.8)] z-10'
+                                                : 'bg-white/5 border border-white/10 text-gray-500 hover:bg-white/10 hover:text-gray-300 opacity-60 hover:opacity-100'}`}
                                     >
-                                        <span>{skillName}</span>
+                                        <span className="tracking-wide">{skillName}</span>
                                         {status && (
-                                            <span className="text-xs bg-black/30 px-2 py-0.5 rounded text-gray-400 group-hover:text-sky-200 transition-colors">
+                                            <span className={`text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full transition-colors border
+                                                ${isActive
+                                                    ? 'bg-black/50 text-sky-300 border-sky-400/30 group-hover:bg-black/20 group-hover:text-black group-hover:border-black/20'
+                                                    : 'bg-black/30 text-gray-500 border-white/5 group-hover:text-gray-300'
+                                                }`}>
                                                 {status}
                                             </span>
                                         )}
