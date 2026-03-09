@@ -121,3 +121,68 @@ body {
 .animate-blinker {
   animation: blinker 1s steps(1) infinite;
 }
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes illuminate {
+
+  0%,
+  100% {
+    color: #64748b;
+    /* text-slate-500 equivalent */
+    filter: drop-shadow(0 0 0px transparent);
+  }
+
+  15%,
+  25% {
+    color: #7dd3fc;
+    /* text-sky-300 equivalent */
+    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.6));
+  }
+
+  40% {
+    color: #64748b;
+    filter: drop-shadow(0 0 0px transparent);
+  }
+}
+
+@keyframes slide-focus {
+  0% {
+    color: #64748b;
+    /* text-slate-500 */
+    filter: drop-shadow(0 0 0px transparent);
+  }
+
+  20% {
+    color: #38bdf8;
+    /* text-sky-400 pop color */
+    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.6));
+  }
+
+  80% {
+    color: #38bdf8;
+    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.6));
+  }
+
+  100% {
+    color: #f8fafc;
+    /* white */
+    filter: drop-shadow(0 0 0px transparent);
+  }
+}
+
+.animate-slide-focus {
+  animation: slide-focus 5s ease-in-out forwards;
+}

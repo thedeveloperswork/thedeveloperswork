@@ -11,7 +11,18 @@
 * **GitHub:** [github.com/thedeveloperswork](https://github.com/thedeveloperswork)
 
 ## 🧠 SUMMARY (GLOBAL OVERVIEW)
-Multidisciplinary Senior Data Engineer with 5+ years of experience architecting fault-tolerant, petabyte-scale distributed systems. Uniquely bridges the gap between low-level systems programming (C++/Unity) and modern Data Engineering (PySpark/Databricks). Specialized in deploying Medallion Lakehouse architectures, Write-Audit-Publish (WAP) validation patterns, and serverless cloud ecosystems (AWS/Azure). Proven track record of leveraging robust software engineering principles—such as microservices, state management, and CI/CD automation—to slash compute latency and guarantee 100% data integrity in enterprise environments.
+### **Data Engineering Expertise** 
+* Architecting petabyte-scale Medallion Lakehouse ecosystems using PySpark, Databricks, and AWS/Azure serverless infrastructure. 
+* Proven track record of sloshing compute latency and guaranteeing 100% data integrity via Write-Audit-Publish (WAP).
+### **Full-Stack Foundations** 
+* Bridging robust backend APIs with responsive frontends. 
+* Experienced in JavaScript ecosystems (ReactJS, NodeJS) and deploying modern web infrastructure with REST APIs and Firebase.
+### **Low-Level System Design** 
+* Cross-domain programming background in C++, C#, and Unity Game Development. 
+* Deep understanding of memory management, MVC patterns, and performance-critical software architecture.
+### **Certified Professional** 
+* Microsoft Certified Azure Data Engineer and Google Cloud Generative AI Leader. 
+* Constantly upskilling across Cloud Development, System Design, and Prompt Engineering frameworks.
 
 ## ⚙️ TECHNICAL ARSENAL (DATABASE VIEW)
 > *Note: Timestamps indicate the last production/project usage to dictate placement hierarchy during resume tailoring.*
@@ -20,27 +31,29 @@ Multidisciplinary Senior Data Engineer with 5+ years of experience architecting 
 * PySpark [Active | Feb 2025 - Present]
 * Apache Spark [Active | Jan 2026 - Present]
 * Databricks / Delta Lake [Active | Jan 2026 - Present]
+* dbt (Data Build Tool) [Active | Jan 2026 - Present]
 * Flink [Last Used | 2024]
 
-**Cloud Ecosystem (AWS & Azure)**
-* AWS: Glue, Step Functions, CloudFormation, Aurora PostgreSQL, S3 [Active | Feb 2025 - Present]
-* Azure: Data Factory (ADF), Synapse, CosmosDB, Event Hubs [Last Used | Dec 2024]
+**Cloud Ecosystem**
+* AWS: Glue [Active], Step Functions [Active], Lambda [Active], CloudFormation [Last Used | May 2025], Aurora PostgreSQL [Active], S3 [Active]
+* Azure: Data Factory (ADF) [Last Used | Dec 2024], Synapse Analytics [Last Used | Dec 2024], CosmosDB [Last Used | Dec 2024], Event Hubs [Last Used | Dec 2024], Azure DevOps [Active | Feb 2025 - Present]
+* GCP: Vertex AI [Active], Gemini [Active], Gen AI Leader [Certified]
+* Firebase: Authentication [Last Used | Feb 2021], Firestore [Last Used | Feb 2021], Functions [Last Used | Feb 2021]
 
 **Architecture & Patterns**
-* Lakehouse / Medallion Architecture [Active | Jan 2026 - Present]
-* Write-Audit-Publish (WAP) Pattern [Active | Jan 2026 - Present]
-* Z-Ordering, Data Skipping, Salted Joins [Active | Jan 2026 - Present]
-* High/Low-Level System Design [Active]
-* Design Patterns: MVC, Singleton, Observer, State Machine [Last Used | 2024]
+* Data Architecture: Lakehouse / Medallion [Active | Jan 2026 - Present], Write-Audit-Publish (WAP) [Active | Jan 2026 - Present], Z-Ordering & Data Skipping [Active | Jan 2026 - Present]
+* Distributed Systems: High/Low-Level System Design [Active], Salted Joins [Active | Jan 2026 - Present]
+* Software Design Patterns: MVC [Last Used | 2024], Singleton [Last Used | 2024], Observer [Last Used | 2024], State Machine [Last Used | 2024]
 
 **DevOps, Testing & Infrastructure**
-* Pytest / Automated Validation Frameworks [Active | Feb 2025 - Present]
-* CI/CD (GitHub Actions, Azure DevOps) [Active | Feb 2025 - Present]
-* Infrastructure-as-Code (CloudFormation, Terraform) [Active | Feb 2025 - Present]
-* Docker / Git [Active | Jan 2026 - Present]
+* Validation: Pytest [Active | Feb 2025 - Present], Automated Frameworks [Active | Feb 2025 - Present]
+* CI/CD & Version Control: GitHub Actions [Active | Feb 2025 - Present], Git [Active | Jan 2026 - Present]
+* Containerization: Docker [Active | Jan 2026 - Present]
 
 **Foundational Programming & Full-Stack**
-* Python, SQL [Active | Jan 2026 - Present]
-* C++, C#, Unity [Last Used | 2024]
-* JavaScript, ReactJS, NodeJS, Firebase [Last Used | Feb 2021]
-* PHP, MySQL, HTML/CSS [Last Used | Feb 2021]
+* Core Languages: Python [Active | Jan 2026 - Present], SQL [Active | Jan 2026 - Present]
+* Generative AI: Prompt Engineering [Active | Jan 2026 - Present]
+* JavaScript Ecosystem: ReactJS [Last Used | Feb 2021], NodeJS [Last Used | Feb 2021]
+* Databases: MongoDB [Last Used | Feb 2021], MySQL [Last Used | Feb 2021]
+* Web Fundamentals: PHP [Last Used | Feb 2021], HTML & CSS [Last Used | Feb 2021]
+* Game Dev: C++ [Last Used | 2024], C# [Last Used | 2024], Unity [Last Used | 2024]

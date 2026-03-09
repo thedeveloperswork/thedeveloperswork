@@ -66,7 +66,7 @@ export function getProfile(): Profile {
                     profile.digitalFootprint[parts[0]] = parts[1]?.match(/\[(.*?)\]/)?.[1] || parts[1];
                 }
             } else if (currentSection.includes('SUMMARY') && !line.startsWith('>')) {
-                profile.summary += line + ' ';
+                profile.summary += line + '\n';
             } else if (currentSection.includes('TECHNICAL') && !line.startsWith('>')) {
                 if (line.startsWith('**') && line.endsWith('**')) {
                     currentArsenalCategory = line.replace(/\*\*/g, '');
