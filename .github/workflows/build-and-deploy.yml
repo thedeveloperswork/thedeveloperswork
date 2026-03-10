@@ -3,12 +3,12 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master
+      - testing
   pull_request:
     types:
       - closed
     branches:
-      - master
+      - testing
 
 permissions:
   contents: write
