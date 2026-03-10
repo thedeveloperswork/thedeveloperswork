@@ -51,18 +51,18 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: ./resume/resume.tex
+          root_file: ./resume/senior_data_engineer.tex
           compiler: pdflatex
 
       - name: Upload Resume PDF artifact
         uses: actions/upload-artifact@v4
         with:
-          path: resume.pdf
+          path: senior_data_engineer.pdf
 
       - name: Prepare Static Artifacts
         run: |
           mkdir -p portfolio/out
-          cp resume.pdf portfolio/out/
+          cp senior_data_engineer.pdf portfolio/out/resume.pdf
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
