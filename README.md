@@ -1,5 +1,6 @@
 <div align="center">
   <i>Hi <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30"/>, I'm</i> <b>The Developers@Work</b>
+  <br/>
     <img src="https://readme-typing-svg.herokuapp.com?font=Ubuntu+Condensed&size=24&duration=7500&color=00FFEB&center=true&vCenter=true&lines=Since+1999;Computer+Science+Graduate;Senior+Data+Engineer;Indie+Developer" alt="Typing SVG"/>
   <h4 align="center">⚡ Don't be toxic for losing, say <b>GG</b> since you had a fun time ⚡</h4>
 </div>
