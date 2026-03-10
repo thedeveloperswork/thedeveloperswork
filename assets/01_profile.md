@@ -5,10 +5,11 @@
 * **Phone:** +91 6281762528
 * **Email:** opportunities@thedevelopers.work
 
-## 🔗 DIGITAL FOOTPRINT
-* **Portfolio:** [thedevelopers.work](https://thedevelopers.work)
-* **LinkedIn:** [linkedin.com/in/thedeveloperswork](https://linkedin.com/in/thedeveloperswork)
-* **GitHub:** [github.com/thedeveloperswork](https://github.com/thedeveloperswork)
+## Floating Text
+* Since 1999
+* Computer Science Graduate
+* Senior Data Engineer
+* Indie Developer
 
 ## 🧠 SUMMARY (GLOBAL OVERVIEW)
 ### **Data Engineering Expertise** 

@@ -1,0 +1,80 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types:
+      - closed
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Cache dependencies and build output
+        uses: actions/cache@v4
+        with:
+          # Caches: Node modules, Next.js build cache, LaTeX directory
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+            /tmp/latex-action
+          # Hash based on OS, package-lock.json and source files for Next.js and LaTeX
+          key: ${{ runner.os }}-build-cache-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx', '**/*.tex') }}
+          restore-keys: |
+            ${{ runner.os }}-build-cache-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-build-cache-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Portfolio
+        run: npm run build
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          compiler: pdflatex
+
+      - name: Upload Resume PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Vijaya_Gopinadh_Resume
+          path: resume.pdf
+
+      - name: Create Zip Archive
+        run: |
+          timestamp=$(date +'%Y%m%d_%H%M%S')
+          zip_name="portfolio_resume_${timestamp}.zip"
+          echo "ZIP_NAME=${zip_name}" >> $GITHUB_ENV
+          cd out
+          zip -r ../${zip_name} .
+          cd ..
+          zip ${zip_name} resume.pdf
+
+      - name: Deploy to SFTP Server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }} # Optional, can use key instead
+          key: ${{ secrets.SFTP_PRIVATE_KEY }}
+          port: ${{ secrets.SFTP_PORT || '22' }}
+          source: "${{ env.ZIP_NAME }}"
+          target: ${{ secrets.SFTP_TARGET_DIR }}

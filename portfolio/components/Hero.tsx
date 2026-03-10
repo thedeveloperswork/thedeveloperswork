@@ -5,7 +5,7 @@ import { Profile } from "@/lib/markdownParser";
 import { Github, Linkedin, ExternalLink, Mail, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Hero({ profile }: { profile: Profile }) {
-    // Extract certifications from the parsed profile technical arsenal
+    // Use floating text from profile, fallback to old logic if empty
     const cloudSkills = profile.technicalArsenal["Cloud Ecosystem"] || [];
     const certSkills = cloudSkills
         .filter(s => s.toLowerCase().includes('certifi') && !s.includes('GCP:'))
@@ -13,6 +13,10 @@ export default function Hero({ profile }: { profile: Profile }) {
             const match = s.match(/(.*?)(?:\[(.*?)\])?$/);
             return match ? match[1].trim() : s;
         });
+
+    const floatingBadges = profile.floatingText && profile.floatingText.length > 0
+        ? profile.floatingText
+        : ["Senior Data Engineer", ...certSkills];
 
     // Parse slides and handle slider state by splitting on headings (###)
     const slidesRaw = profile.summary.split('### ').filter(Boolean);
@@ -55,21 +59,33 @@ export default function Hero({ profile }: { profile: Profile }) {
 
     return (
         <section className="animate-in fade-in slide-in-from-bottom-8 duration-1000">
-            <div className="glass-panel p-8 md:p-12 rounded-3xl relative overflow-hidden">
+            <div className="glass-panel p-5 md:p-12 rounded-3xl relative overflow-hidden">
                 {/* Decorative corner accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-cyan-500/20 to-transparent rounded-bl-full" />
 
-                <div className="relative z-10 flex flex-col pt-4">
+                <div className="relative z-10 flex flex-col pt-4 md:pt-0">
                     {/* Floating Badges */}
-                    <div className="absolute -top-6 right-0 md:-top-2 md:right-4 flex flex-col gap-3 items-end z-20 pointer-events-none select-none">
-                        <div className="bg-amber-500/10 text-amber-400 px-4 py-1.5 font-mono text-xs md:text-sm font-bold border border-amber-400/30 rounded-full backdrop-blur-md shadow-[0_0_10px_rgba(251,191,36,0.2)] rotate-[2deg] animate-[float_6s_ease-in-out_infinite]">
-                            Senior Data Engineer
-                        </div>
-                        {certSkills.map((cert, idx) => (
-                            <div key={idx} className={`bg-sky-500/10 text-sky-400 px-4 py-1.5 font-mono text-xs md:text-sm font-bold border border-sky-400/30 rounded-full backdrop-blur-md shadow-[0_0_10px_rgba(56,189,248,0.2)] ${idx % 2 === 0 ? '-rotate-[3deg]' : 'rotate-[4deg]'} animate-[float_7s_ease-in-out_infinite]`}>
-                                {cert}
-                            </div>
-                        ))}
+                    <div className="absolute top-0 right-0 md:top-2 md:right-4 flex flex-col gap-3 items-end z-20 pointer-events-none select-none">
+                        {floatingBadges.map((text, idx) => {
+                            const isEven = idx % 2 === 0;
+                            const isThird = idx % 3 === 0;
+                            
+                            let colorClasses = "bg-sky-500/10 text-sky-400 border-sky-400/30 shadow-[0_0_10px_rgba(56,189,248,0.2)]";
+                            if (isThird) {
+                                colorClasses = "bg-amber-500/10 text-amber-400 border-amber-400/30 shadow-[0_0_10px_rgba(251,191,36,0.2)]";
+                            } else if (!isEven) {
+                                colorClasses = "bg-emerald-500/10 text-emerald-400 border-emerald-400/30 shadow-[0_0_10px_rgba(52,211,153,0.2)]";
+                            }
+
+                            const rotateClass = isEven ? "-rotate-[3deg]" : "rotate-[4deg]";
+                            const animationClass = isEven ? "animate-[float_7s_ease-in-out_infinite]" : "animate-[float_6s_ease-in-out_infinite]";
+
+                            return (
+                                <div key={idx} className={`${colorClasses} px-4 py-1.5 font-mono text-xs md:text-sm font-bold border rounded-full backdrop-blur-md ${rotateClass} ${animationClass}`}>
+                                    {text}
+                                </div>
+                            );
+                        })}
                     </div>
 
                     <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 animate-in slide-in-from-left-8 duration-1000">
@@ -106,7 +122,7 @@ export default function Hero({ profile }: { profile: Profile }) {
                         )}
                     </div>
 
-                    <div className="relative p-6 md:p-8 mt-10 rounded-2xl bg-white/5 border border-white/10 shadow-inner group overflow-hidden">
+                    <div className="relative p-3 md:p-8 mt-6 md:mt-10 rounded-2xl bg-transparent group overflow-hidden">
                         <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-sky-400 via-cyan-400 to-indigo-500 transition-all duration-300" />
                         <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition duration-700" />
                         <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition duration-700 delay-100" />

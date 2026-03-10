@@ -7,6 +7,7 @@ export interface Profile {
     digitalFootprint: Record<string, string>;
     summary: string;
     technicalArsenal: Record<string, string[]>;
+    floatingText?: string[];
 }
 
 export interface Experience {
@@ -45,7 +46,7 @@ export function getProfile(): Profile {
     const fileContent = fs.readFileSync(filePath, 'utf8').replace(/\r\n/g, '\n');
 
     const lines = fileContent.split('\n');
-    const profile: Profile = { name: '', metadata: {}, digitalFootprint: {}, summary: '', technicalArsenal: {} };
+    const profile: Profile = { name: '', metadata: {}, digitalFootprint: {}, summary: '', technicalArsenal: {}, floatingText: [] };
 
     let currentSection = '';
     let currentArsenalCategory = '';
@@ -64,6 +65,10 @@ export function getProfile(): Profile {
                 const parts = line.replace('* **', '').split(':** ');
                 if (parts.length > 1) {
                     profile.digitalFootprint[parts[0]] = parts[1]?.match(/\[(.*?)\]/)?.[1] || parts[1];
+                }
+            } else if (currentSection.includes('Floating Text') || currentSection.includes('FLOATING TEXT')) {
+                if (line.startsWith('* ')) {
+                    profile.floatingText?.push(line.replace('* ', ''));
                 }
             } else if (currentSection.includes('SUMMARY') && !line.startsWith('>')) {
                 profile.summary += line + '\n';
@@ -197,4 +202,42 @@ export function getEducation(): Education {
     });
 
     return edu;
+}
+
+export interface SocialLink {
+    name: string;
+    url: string;
+}
+
+export interface SocialCategory {
+    category: string;
+    links: SocialLink[];
+}
+
+export function getSocial(): SocialCategory[] {
+    const filePath = path.join(assetsDir, '05_social.md');
+    if (!fs.existsSync(filePath)) return [];
+    
+    const fileContent = fs.readFileSync(filePath, 'utf8').replace(/\r\n/g, '\n');
+    const categories: SocialCategory[] = [];
+    let currentCategory: SocialCategory | null = null;
+
+    fileContent.split('\n').forEach(line => {
+        line = line.trim();
+        if (line.startsWith('## ')) {
+            currentCategory = { category: line.replace('## ', '').replace('🔗 ', '').trim(), links: [] };
+            categories.push(currentCategory);
+        } else if (line.startsWith('* **') && currentCategory) {
+            // Format: * **Name:** [text](url)
+            const parts = line.replace('* **', '').split(':** ');
+            if (parts.length > 1) {
+                const name = parts[0].trim();
+                const urlMatch = parts[1].match(/\((.*?)\)/);
+                const url = urlMatch ? urlMatch[1] : parts[1].trim();
+                currentCategory.links.push({ name, url });
+            }
+        }
+    });
+
+    return categories.filter(c => c.links.length > 0);
 }

@@ -1,10 +1,11 @@
-import { getProfile, getExperience, getProjects, getEducation } from "@/lib/markdownParser";
+import { getProfile, getExperience, getProjects, getEducation, getSocial } from "@/lib/markdownParser";
 import Hero from "@/components/Hero";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import EducationSection from "@/components/Education";
 import Contact from "@/components/Contact";
+import Social from "@/components/Social";
 import HUD from "@/components/HUD";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
   const experiences = getExperience();
   const projects = getProjects();
   const edu = getEducation();
+  const socialCategories = getSocial();
 
   return (
     <main className="flex flex-col gap-24 md:gap-32 w-full relative">
@@ -21,6 +23,7 @@ export default function Home() {
       <Experience experiences={experiences} />
       <Projects projects={projects} />
       <EducationSection education={edu} />
+      <Social categories={socialCategories} />
       <Contact />
 
       <footer className="mt-32 pt-16 pb-20 border-t border-white/5 text-center text-sm relative z-10 w-full max-w-4xl mx-auto">
