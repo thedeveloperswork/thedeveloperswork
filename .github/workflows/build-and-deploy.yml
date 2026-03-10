@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - testing
+      - development
   pull_request:
     types:
       - closed
@@ -51,7 +51,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: resume.tex
+          root_file: ./resume/resume.tex
           compiler: pdflatex
 
       - name: Upload Resume PDF artifact
