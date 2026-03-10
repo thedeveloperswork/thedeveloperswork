@@ -73,7 +73,7 @@ export default function Hero({ profile }: { profile: Profile }) {
                     </div>
 
                     <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 animate-in slide-in-from-left-8 duration-1000">
-                        <span className="gradient-text bg-[length:200%_auto] animate-[gradient_8s_linear_infinite] drop-shadow-[0_0_10px_rgba(56,189,248,0.4)]">
+                        <span className="gradient-text bg-[length:200%_auto] animate-[gradient_8s_linear_infinite] drop-shadow-[0_0_15px_rgba(56,189,248,0.6)]">
                             {profile.name}
                         </span>
                     </h1>
@@ -125,15 +125,15 @@ export default function Hero({ profile }: { profile: Profile }) {
                                     className="animate-slide-focus w-full max-w-4xl flex flex-col gap-3 md:gap-4"
                                 >
                                     {currentSlideData.heading && (
-                                        <h3 className="text-xl md:text-2xl font-bold tracking-wide drop-shadow-[0_0_12px_currentColor]">
-                                            {currentSlideData.heading}:
+                                        <h3 className="text-xl md:text-2xl font-bold tracking-wide drop-shadow-[0_0_4px_rgba(56,189,248,0.6)] gradient-text bg-[length:200%_auto] animate-[gradient_8s_linear_infinite]">
+                                            {currentSlideData.heading}
                                         </h3>
                                     )}
                                     <div className="text-sm md:text-base leading-relaxed opacity-90 flex flex-col gap-2.5">
                                         {currentSlideData.bodyLines.map((line: string, idx: number) => (
                                             <p key={idx} className="flex items-start gap-3">
-                                                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-current shrink-0" />
-                                                <span>{line}</span>
+                                                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-sky-400 shrink-0 opacity-80" />
+                                                <span className="gradient-text bg-[length:200%_auto] animate-[gradient_8s_linear_infinite]">{line}</span>
                                             </p>
                                         ))}
                                     </div>

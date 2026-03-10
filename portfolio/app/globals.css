@@ -160,29 +160,21 @@ body {
 
 @keyframes slide-focus {
   0% {
-    color: #64748b;
-    /* text-slate-500 */
-    filter: drop-shadow(0 0 0px transparent);
+    filter: grayscale(100%) brightness(0.5);
+    opacity: 0.8;
   }
 
-  20% {
-    color: #38bdf8;
-    /* text-sky-400 pop color */
-    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.6));
-  }
-
-  80% {
-    color: #38bdf8;
-    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.6));
+  25% {
+    filter: grayscale(0%) brightness(1.1) drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
+    opacity: 1;
   }
 
   100% {
-    color: #f8fafc;
-    /* white */
-    filter: drop-shadow(0 0 0px transparent);
+    filter: grayscale(100%) brightness(500%) drop-shadow(0 0 0px transparent);
+    opacity: 1;
   }
 }
 
 .animate-slide-focus {
-  animation: slide-focus 5s ease-in-out forwards;
+  animation: slide-focus 4s ease-in-out forwards;
 }

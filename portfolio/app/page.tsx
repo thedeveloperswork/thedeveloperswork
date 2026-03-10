@@ -4,6 +4,7 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import EducationSection from "@/components/Education";
+import Contact from "@/components/Contact";
 import HUD from "@/components/HUD";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <Experience experiences={experiences} />
       <Projects projects={projects} />
       <EducationSection education={edu} />
+      <Contact />
 
       <footer className="mt-32 pt-16 pb-20 border-t border-white/5 text-center text-sm relative z-10 w-full max-w-4xl mx-auto">
         <div className="font-mono text-cyan-400 mb-8 font-bold tracking-widest drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">
