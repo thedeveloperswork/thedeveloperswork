@@ -1,0 +1,127 @@
+<div style="max-width: 1000px; margin: 80px auto;">
+
+    <div class="chapter-tag">Chapter 3 // Quest Log</div>
+    <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 30px;">SELECT MISSION</h2>
+
+    <div class="mission-grid">
+
+        <div class="mission-card">
+            <div class="mission-status">COMPLETED</div>
+            <div class="mission-image" style="background: #333;">
+                <span style="opacity: 0.5;">[IMG: Eggventure]</span>
+            </div>
+            <div class="mission-info">
+                <h3>Eggventure 3D</h3>
+                <p>Unity 3D Action Game</p>
+                <button class="launch-btn">REPLAY MISSION</button>
+            </div>
+        </div>
+
+        <div class="mission-card">
+            <div class="mission-status">COMPLETED</div>
+            <div class="mission-image" style="background: #222;">
+                <span style="opacity: 0.5;">[IMG: Minesweeper]</span>
+            </div>
+            <div class="mission-info">
+                <h3>Minesweeper</h3>
+                <p>Classic Logic Puzzle</p>
+                <button class="launch-btn">REPLAY MISSION</button>
+            </div>
+        </div>
+
+        <div class="mission-card">
+            <div class="mission-status active">IN PROGRESS</div>
+            <div class="mission-image" style="background: #1a1a1a;">
+                <span style="opacity: 0.5;">[IMG: Azure Pipeline]</span>
+            </div>
+            <div class="mission-info">
+                <h3>Enterprise Data Lake</h3>
+                <p>Azure & Databricks Architecture</p>
+                <button class="launch-btn">VIEW SPECS</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .mission-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .mission-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s;
+    }
+
+    .mission-card:hover {
+        transform: scale(1.02);
+        border-color: var(--teal-glow);
+    }
+
+    .mission-status {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: #FF2E63;
+        /* Pink Accent for "Game" vibe */
+        color: white;
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-family: 'Orbitron', sans-serif;
+        z-index: 10;
+    }
+
+    .mission-status.active {
+        background: var(--teal-glow);
+        color: black;
+    }
+
+    .mission-image {
+        height: 160px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mission-info {
+        padding: 20px;
+    }
+
+    .mission-info h3 {
+        margin: 0;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .mission-info p {
+        color: #888;
+        margin: 5px 0 15px 0;
+        font-size: 0.9rem;
+    }
+
+    .launch-btn {
+        background: transparent;
+        border: 1px solid #FF2E63;
+        color: #FF2E63;
+        width: 100%;
+        padding: 10px;
+        font-family: 'Orbitron', sans-serif;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .launch-btn:hover {
+        background: #FF2E63;
+        color: white;
+    }
+</style>

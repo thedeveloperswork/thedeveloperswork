@@ -1,0 +1,121 @@
+<button class="chaos-trigger" onclick="activateChaos()">
+    ⚠️ INITIATE ZERO-G
+</button>
+
+<footer class="game-footer">
+    <div style="text-align: center;">
+        <div class="footer-title">MISSION COMPLETE?</div>
+        [cite_start]<p style="color: #888; margin-bottom: 30px;">"Just a dev trying to make fun games" [cite: 184]</p>
+
+        <div class="connect-console">
+            <span class="blink">> WAITING FOR INPUT...</span>
+            <div class="footer-links">
+                <a href="mailto:vijayagopinadhreddy.velagala@thedevelopers.work" class="console-btn">
+                    [ EMAIL ME ]
+                </a>
+
+                <a href="#" class="console-btn">
+                    [ LINKEDIN ]
+                </a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            [cite_start]© 2025 VIJAYA GOPINADH REDDY VELAGALA [cite: 5] <br>
+            [cite_start]LEVEL 3 SPECIALIST PROGRAMMER [cite: 42]
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* The Floating Chaos Button */
+    .chaos-trigger {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(20, 184, 166, 0.1);
+        color: var(--teal-glow);
+        border: 2px solid var(--teal-glow);
+        padding: 15px 40px;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-radius: 4px;
+        cursor: pointer;
+        z-index: 999;
+        /* Always on top */
+        box-shadow: 0 0 15px rgba(0, 173, 181, 0.3);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+    }
+
+    .chaos-trigger:hover {
+        background: var(--teal-glow);
+        color: #000;
+        box-shadow: 0 0 40px rgba(0, 173, 181, 0.8);
+        letter-spacing: 2px;
+    }
+
+    /* Footer Styling */
+    .game-footer {
+        margin-top: 100px;
+        padding: 80px 20px;
+        background: linear-gradient(to top, #050a10, transparent);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3rem;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        margin-bottom: 10px;
+    }
+
+    .connect-console {
+        background: #000;
+        border: 1px solid #333;
+        display: inline-block;
+        padding: 30px;
+        border-radius: 8px;
+        min-width: 300px;
+    }
+
+    .blink {
+        display: block;
+        font-family: 'Courier New', monospace;
+        color: #0f0;
+        margin-bottom: 20px;
+        animation: blinker 1s linear infinite;
+    }
+
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    .console-btn {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 0 10px;
+        transition: color 0.2s;
+    }
+
+    .console-btn:hover {
+        color: var(--teal-glow);
+    }
+
+    .copyright {
+        margin-top: 50px;
+        font-size: 0.7rem;
+        color: #444;
+        font-family: 'Orbitron', sans-serif;
+        line-height: 1.5;
+    }
+</style>
