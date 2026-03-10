@@ -32,3 +32,4 @@ You operate by digesting the following modular data sources:
 ### Step 3: LaTeX Generation
 - **Output:** Generate the complete LaTeX code ready for GitHub Actions CI/CD deployment.
 - **Goal:** Ensure the output achieves a 100% ATS parse rate and maximizes quantified impact scores.
+- **Formatting Constraints (LOCKED IN):** You MUST STRICTLY adhere to all constraints defined in `RULES.md` (specially "LAYOUT AND STRUCTURAL CONVENTIONS" and "Link Formatting"). All document geometry, hardcoded header styling, 10pt OT1 fonts, and hyperlink configurations (e.g., hiding cyan boxes with `\hypersetup{hidelinks}`) must be perfectly applied as instructed in the RULES. Do not use generic, default abstract LaTeX macros for ATS generation—hardcode the layout to match the provided rules identically.
