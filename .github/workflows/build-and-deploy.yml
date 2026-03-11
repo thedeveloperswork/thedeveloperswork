@@ -43,6 +43,8 @@ jobs:
 
       - name: Build Portfolio
         working-directory: ./portfolio
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
         run: npm run build
 
       - name: Compile LaTeX document
