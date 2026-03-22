@@ -1,0 +1,135 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{hyperref}
+
+% --- Manual Section Formatting (Instead of titlesec) ---
+\newcommand{\mysection}[1]{%
+    \vspace{1.5ex}
+    {\large\bfseries\uppercase{#1}}
+    \vspace{0.5ex}
+    \hrule
+    \vspace{1ex}
+}
+
+% Remove page numbers
+\pagestyle{empty}
+
+\begin{document}
+
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+% HEADER
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+\begin{center}
+    {\Huge \textbf{VIJAYA GOPINADH REDDY VELAGALA}} \\ \vspace{2pt}
+    \textbf{SENIOR DATA ENGINEER | SPECIALIST PROGRAMMER L2} \\ \vspace{4pt}
+    Hyderabad, India | +91 6281762528 | \href{mailto:opportunities@thedevelopers.work}{opportunities@thedevelopers.work} \\ \vspace{2pt}
+    \href{https://linkedin.com/in/thedeveloperswork}{linkedin.com/in/thedeveloperswork} | \href{https://github.com/thedeveloperswork}{github.com/thedeveloperswork} | \href{https://thedevelopers.work}{thedevelopers.work}
+\end{center}
+
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+% SUMMARY
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+\mysection{Summary}
+\noindent Multidisciplinary \textbf{Senior Data Engineer} with over 4 years of experience architecting fault-tolerant, petabyte-scale distributed systems. Expert in \textbf{PySpark, Databricks, and AWS/Azure} serverless infrastructure. Specialized in deploying Medallion Lakehouse architectures, Write-Audit-Publish (WAP) validation patterns, and reducing compute latency by 30--60\%. Proven track record of ensuring 100\% data integrity and environment parity in mission-critical enterprise environments.
+
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+% TECHNICAL ARSENAL
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+\mysection{Technical Arsenal}
+\begin{itemize}
+    \item \textbf{Data Processing \& Compute:} PySpark, Apache Spark, Databricks, Delta Lake, dbt, Flink, AWS Glue.
+    \item \textbf{Cloud Ecosystem:} \textbf{AWS} (Step Functions, Lambda, CloudFormation, S3, Aurora), \textbf{Azure} (Data Factory, Synapse, Event Hubs, CosmosDB), \textbf{GCP} (Vertex AI, Gemini).
+    \item \textbf{Languages:} Python, SQL, C++, C\#, JavaScript (Node.js, React.js).
+    \item \textbf{Architecture:} Medallion (Bronze/Silver/Gold), Write-Audit-Publish (WAP), Z-Ordering, Salted Joins, Microservices, MVC.
+    \item \textbf{DevOps \& Testing:} CI/CD (GitHub Actions), Docker, Pytest, Automated Validation Frameworks.
+\end{itemize}
+
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+% EXPERIENCE
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+\mysection{Experience}
+
+\noindent \textbf{Infosys} \hfill NOV 2020 -- PRESENT \\
+\textit{Specialist Programmer L2} \hfill Hyderabad, India
+\begin{itemize}
+    \item \textbf{Client: British Petroleum (Feb 2025 -- Present):}
+        \begin{itemize}
+            \item Engineered an automated Pytest-driven validation framework within CI/CD pipelines, eliminating manual SQL checks and achieving a 0\% defect injection rate.
+            \item Architected serverless PySpark ETL pipelines utilizing AWS Glue and Step Functions, reducing execution time by 30\% for multi-terabyte datasets.
+            \item Standardized infrastructure deployments using AWS CloudFormation, ensuring 100\% environment parity across Dev, Staging, and Prod.
+        \end{itemize}
+    \item \textbf{Client: Telstra (Mar 2021 -- Dec 2024):}
+        \begin{itemize}
+            \item Optimized Databricks-to-Synapse reads via pushdown predicates, slashing ADF pipeline execution time by 60\% (2 hours to 45 minutes).
+            \item Led migration to Databricks Runtime 13.3 LTS within a B2B Medallion architecture, engineering source-to-target reconciliation for TB-scale data.
+            \item Pioneered Write-Audit-Publish (WAP) architecture for enterprise data lakes, preventing downstream data corruption.
+        \end{itemize}
+    \item \textbf{Digital Specialist Engineer (Nov 2020 -- Feb 2021):}
+        \begin{itemize}
+            \item Designed data-driven solutions leveraging Azure Cloud and PySpark, earning Team MVP recognition for problem-solving.
+        \end{itemize}
+\end{itemize}
+
+\vspace{4pt}
+
+\noindent \textbf{Developers@Work} \hfill JAN 2018 -- FEB 2021 \\
+\textit{Freelance Software Engineer} \hfill Remote
+\begin{itemize}
+    \item Executed full-stack architectures (ReactJS, NodeJS, Firebase) for diverse client portfolios and directed technical community building.
+\end{itemize}
+
+\vspace{4pt}
+
+\noindent \textbf{KK Consultancy} \hfill MAY 2018 -- FEB 2021 \\
+\textit{Full-Stack Developer Intern} \hfill Remote
+\begin{itemize}
+    \item Built reusable Auth/AuthZ middleware with JWT and Firebase authentication modules for full-stack web automation.
+\end{itemize}
+
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+% TECHNICAL PROJECTS
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+\mysection{Technical Projects}
+
+\noindent \textbf{Retail360 Enterprise Lakehouse} \hfill \textit{Databricks, Delta Lake, PySpark} \\
+\begin{itemize}
+    \item Designed a production-grade Medallion Lakehouse architecture, decreasing query latency by 40\% via Z-Ordering and Data Skipping.
+    \item Mitigated data skew using Salted Join strategies in PySpark, ensuring stable pipeline execution and preventing OOM errors.
+\end{itemize}
+
+\vspace{2pt}
+
+\noindent \textbf{Eggventure 3D (FPS Simulation)} \hfill \textit{C++, C\#, Unity}
+\begin{itemize}
+    \item Engineered an Object Pooling system for 60+ FPS stability; built scalable game logic via State Machine AI and MVC patterns.
+\end{itemize}
+
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+% EDUCATION
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+\mysection{Education}
+
+\noindent \textbf{Bachelor of Technology (Computer Science \& Engineering)} \hfill JUL 2016 -- SEP 2020 \\
+Sasi Institute of Technology \& Engineering (JNTUK) \hfill CGPA: 7.63/10
+
+\vspace{4pt}
+
+\noindent \textbf{12th / Intermediate (MPC)} \hfill JUN 2014 -- APR 2016 \\
+Adity Jr. College, Tadepalligudem (Board of Intermediate Education, AP) \hfill Score: 774/1000
+
+\vspace{4pt}
+
+\noindent \textbf{10th / SSC} \hfill JUN 2013 -- APR 2014 \\
+St. Mary's English Medium High School, Prathipadu (Board of Secondary Education, AP) \hfill CGPA: 6.9/10
+
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+% CERTIFICATIONS
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+\mysection{Certifications}
+\begin{itemize}
+    \item \textbf{Microsoft:} Azure Data Engineer Associate | \textbf{Google Cloud:} Generative AI Leader
+    \item \textbf{AWS:} Certified Solutions Architect Associate | \textbf{Infosys:} Certified Software Programmer
+    \item \textbf{HackerRank:} SQL, Python, Java, Node, React, JavaScript (Core Accreditations)
+\end{itemize}
+
+\end{document}
