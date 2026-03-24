@@ -51,7 +51,9 @@ All deployments are automated via GitHub Actions and are **only** triggered when
 2. **Testing Environment (`testing` branch)**
    - **Trigger**: Merge to `testing`.
    - **Environment**: `alpha` (GitHub Environment).
+   - **Node.js Runtime**: `v24` (LTS/Modern).
    - **Deployment**: Automatic build and SFTP deployment to the remote testing server.
+
    - **Linting**: Standard `npm run lint` (warnings allowed).
    - **Required Secrets**: `SFTP_SERVER`, `SFTP_PASSWORD`.
    - **Required Variables**: `SFTP_USERNAME`, `SFTP_REMOTE_PATH`.
