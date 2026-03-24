@@ -53,7 +53,7 @@ jobs:
         run: |
           # Use the environment variable if you want to override based on server subfolders
           # For example, if SFTP_REMOTE_PATH is /var/www/testing, BASE_PATH should be /testing
-          REMOTE_PATH="${{ secrets.SFTP_REMOTE_PATH }}"
+          REMOTE_PATH="${{ vars.SFTP_REMOTE_PATH }}"
           DIR_NAME=$(basename "$REMOTE_PATH")
           export BASE_PATH="/$DIR_NAME"
           npm run build
@@ -62,9 +62,9 @@ jobs:
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.SFTP_SERVER }}
-          username: ${{ secrets.SFTP_USERNAME }}
+          username: ${{ vars.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port: 22
           local_path: './portfolio/out/*'
-          remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
+          remote_path: ${{ vars.SFTP_REMOTE_PATH }}
           delete_remote_files: true
