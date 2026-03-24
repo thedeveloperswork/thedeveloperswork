@@ -38,7 +38,6 @@ jobs:
         working-directory: ./portfolio
         run: npm run lint
 
-      # Optional: Add test script if it exists in the future
-      # - name: Run Tests
-      #   working-directory: ./portfolio
-      #   run: npm test
+      - name: Run Tests
+        working-directory: ./portfolio
+        run: npm run test

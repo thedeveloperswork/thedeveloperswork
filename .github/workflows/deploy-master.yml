@@ -39,9 +39,9 @@ jobs:
         working-directory: ./portfolio
         run: npm ci
 
-      - name: Run Lint (Guardrail)
+      - name: Run Lint (Strict Guardrail)
         working-directory: ./portfolio
-        run: npm run lint
+        run: npm run lint -- --max-warnings 0
 
       - name: Build Portfolio
         working-directory: ./portfolio
