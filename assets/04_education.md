@@ -8,7 +8,22 @@
 * **College**: Sasi Institute of Technology & Engineering
 * **CGPA**: 7.63/10
 * **Duration:** 4 Years
-* **Timeline:** 2016 - 2020
+* **Timeline:** JUL 2016 - SEP 2020
+
+### 12th
+* **Field**: MPC - Maths, Physics, Chemistry
+* **University**: Board of Intermediate Education, Andhra Pradesh
+* **College**: Adity Jr. College, Tadepalligudem
+* **Score**: 774/1000
+* **Duration:** 2 Years
+* **Timeline:** JUN 2014 - APR 2016
+
+### 10th
+* **University**: Board of Secondary School of Education, Andhra Pradesh
+* **School**: St.Mary's English Medium High School, Prathipadu
+* **CGPA**: 6.9/10
+* **Duration:** 1 Year
+* **Timeline:** JUN 2013 - APR 2014
 
 ## OFFICIAL CERTIFICATIONS
 * **Microsoft:** Azure Data Engineer Associate (Expires: Jan 2026)

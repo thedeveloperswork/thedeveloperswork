@@ -212,13 +212,13 @@ const ProjectTimelineView = ({ events, openModal }: { events: ProjectTimelineEve
     const [isHovered, setIsHovered] = useState(false);
     const [isInitialized, setIsInitialized] = useState(false);
 
-    // Initial right-align
     useEffect(() => {
         if (scrollRef.current && !isInitialized) {
             const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
             scrollRef.current.scrollLeft = maxScroll;
             scrollPos.current = maxScroll;
-            setIsInitialized(true);
+            const timeout = setTimeout(() => setIsInitialized(true), 0);
+            return () => clearTimeout(timeout);
         }
     }, [events, isInitialized]);
 

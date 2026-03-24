@@ -166,7 +166,7 @@ export default function Hero({ profile }: { profile: Profile }) {
 
                         {/* Slide indicators */}
                         <div className="flex justify-center gap-2 mt-6 relative z-10">
-                            {slides.map((_: any, i: number) => (
+                            {slides.map((_: unknown, i: number) => (
                                 <button
                                     key={i}
                                     onClick={() => handleDotClick(i)}

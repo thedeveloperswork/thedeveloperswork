@@ -30,7 +30,7 @@ export default function Home() {
         <div className="font-mono text-cyan-400 mb-8 font-bold tracking-widest drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]">
           {'>'} WAITING FOR INPUT<span className="animate-blinker inline-block text-white ml-0.5">_</span>
         </div>
-        <p className="text-gray-500 font-semibold tracking-wider text-xs">© {new Date().getFullYear()} {profile.name.toUpperCase()} // LVL 05 SPECIALIST</p>
+        <p className="text-gray-500 font-semibold tracking-wider text-xs">© {new Date().getFullYear()} {profile.name.toUpperCase()} {" // "} LVL 05 SPECIALIST</p>
         <p className="mt-2 text-gray-600 font-mono text-[10px]">Architected dynamically from raw Markdown data</p>
       </footer>
     </main>
