@@ -53,7 +53,8 @@ All deployments are automated via GitHub Actions and are **only** triggered when
    - **Environment**: `alpha` (GitHub Environment).
    - **Deployment**: Automatic build and SFTP deployment to the remote testing server.
    - **Linting**: Standard `npm run lint` (warnings allowed).
-   - **Required Secrets**: `SFTP_SERVER`, `SFTP_USERNAME`, `SFTP_PASSWORD`, `SFTP_REMOTE_PATH`.
+   - **Required Secrets**: `SFTP_SERVER`, `SFTP_PASSWORD`.
+   - **Required Variables**: `SFTP_USERNAME`, `SFTP_REMOTE_PATH`.
    - **Caching**: Implements `actions/cache` for `.next/cache` and `~/.npm`.
    - **Assets**: Next.js `basePath` is dynamically derived from the remote deployment directory.
 
