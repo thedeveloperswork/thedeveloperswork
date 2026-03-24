@@ -4,7 +4,7 @@ on:
   pull_request:
     # types: [closed]
     branches:
-      - testing
+      - development
 
 permissions:
   contents: read
