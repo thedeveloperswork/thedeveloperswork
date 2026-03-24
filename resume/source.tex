@@ -1,54 +1,65 @@
 \documentclass[10pt, letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
 \usepackage[margin=0.75in]{geometry}
-\usepackage{enumitem}
-\usepackage{bookmark}
 \usepackage{hyperref}
-\usepackage{titlesec}
 
-% --- Formatting Sections ---
-\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{1ex}{1ex}
+% ATS HYPERLINK CONFIGURATION
+\hypersetup{hidelinks}
 
-% Remove page numbers
-\pagestyle{empty}
+% HEADER EMULATION (No external packages)
+\newcommand{\resumesection}[1]{
+  \vspace{8pt}
+  \noindent \textbf{\large \uppercase{#1}} \\
+  \vspace{-8pt}
+  \hrule
+  \vspace{6pt}
+}
 
 \begin{document}
+
+\pagestyle{empty}
 
 % ==========================================
 % HEADER
 % ==========================================
 \begin{center}
-    {\Huge \textbf{VIJAYA GOPINADH REDDY VELAGALA}} \\ \vspace{2pt}
-    Hyderabad, India | +91 6281762528 | opportunities@thedevelopers.work \\ \vspace{2pt}
-    \href{https://linkedin.com/in/thedeveloperswork}{linkedin.com/in/thedeveloperswork} | \href{https://github.com/thedeveloperswork}{github.com/thedeveloperswork} | \href{https://thedevelopers.work}{thedevelopers.work}
+    {\LARGE \textbf{VIJAYA GOPINADH REDDY VELAGALA}} \\
+    \vspace{2pt}
+    \textsf{\textbf{Senior Data Engineer}} \\
+    \vspace{4pt}
+    Hyderabad, India | +91 6281762528 | \href{mailto:opportunities@thedevelopers.work}{\textit{\underline{opportunities@thedevelopers.work}}} \\
+    \href{https://linkedin.com/in/thedeveloperswork}{\textit{\underline{linkedin.com/in/thedeveloperswork}}} | \href{https://github.com/thedeveloperswork}{\textit{\underline{github.com/thedeveloperswork}}} | \href{https://thedevelopers.work}{\textit{\underline{thedevelopers.work}}}
 \end{center}
 
 % ==========================================
 % SUMMARY
 % ==========================================
-\section{Summary}
-\noindent Multidisciplinary Senior Data Engineer with 5+ years of experience architecting fault-tolerant, petabyte-scale distributed systems. Uniquely bridges the gap between low-level systems programming (C++/Unity) and modern Data Engineering (PySpark/Databricks). Specialized in deploying Medallion Lakehouse architectures, Write-Audit-Publish (WAP) validation patterns, and serverless cloud ecosystems (AWS/Azure). Proven track record of leveraging robust software engineering principles—such as microservices, state management, and CI/CD automation—to slash compute latency and guarantee 100\% data integrity in enterprise environments.
+\resumesection{Summary}
+\noindent Multidisciplinary Senior Data Engineer with 5+ years of experience architecting fault-tolerant, petabyte-scale distributed systems. Uniquely bridges the gap between low-level systems programming (C++/Unity/HLSL) and modern Data Engineering (PySpark/Databricks/AWS/Azure). Specialized in deploying Medallion Lakehouse architectures, Write-Audit-Publish (WAP) validation patterns, and serverless cloud ecosystems. Proven track record of leveraging robust software engineering principles—including microservices, state management, and full-stack JavaScript ecosystems (React/Node)—to slash compute latency, boost rendering performance, and guarantee 100\% data integrity in enterprise environments.
 
 % ==========================================
 % TECHNICAL ARSENAL
 % ==========================================
-\section{Technical Arsenal}
-\begin{itemize}[leftmargin=0.15in, label={}]
-    \item \textbf{Data Processing \& Compute:} PySpark [Active | 2025], Apache Spark [Active], Databricks (Delta Lake) [Dec 2024], Flink [2024]
-    \item \textbf{Cloud Ecosystem (AWS \& Azure):} AWS (Glue, Step Functions, CloudFormation, S3) [Active], Azure (Data Factory, Synapse, CosmosDB, Event Hubs) [Dec 2024]
-    \item \textbf{Architecture \& Patterns:} Medallion Lakehouse [Active], Write-Audit-Publish (WAP) Pattern [Active], High/Low-Level System Design [Active], Z-Ordering \& Data Skipping [2024], Design Patterns (MVC, Observer) [2023]
-    \item \textbf{DevOps, Testing \& Infrastructure:} Pytest [Active], CI/CD (GitHub Actions, Azure DevOps) [Active], Infrastructure-as-Code (CloudFormation, Terraform) [Active], Docker \& Git [Active]
-    \item \textbf{Foundational Programming \& Full-Stack:} Python, SQL [Active], C++, C\#, Unity [2023], JavaScript, ReactJS, NodeJS, Firebase, PHP, MySQL, HTML/CSS [2021]
+\resumesection{Technical Arsenal}
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
+    \item \textbf{Data Processing \& Compute:} PySpark [Active | 2025], Apache Spark [Active], Databricks (Delta Lake) [Active], dbt (Data Build Tool) [Active], Flink [2024]
+    \item \textbf{Cloud Ecosystem:} AWS (Glue, Step Functions, Lambda, CloudFormation, Aurora PostgreSQL, S3) [Active], Azure (Data Factory, Synapse, CosmosDB, Event Hubs, Azure DevOps) [Dec 2024], GCP (Vertex AI, Gemini, Gen AI Leader) [Active], Firebase (Auth, Firestore, Functions) [2021]
+    \item \textbf{Architecture \& Patterns:} Medallion Lakehouse [Active], Write-Audit-Publish (WAP) [Active], High/Low-Level System Design [Active], Z-Ordering \& Data Skipping [Active], Distributed Patterns (Salted Joins) [Active], Software Design (MVC, Singleton, Observer, State Machine)
+    \item \textbf{DevOps, Testing \& Infrastructure:} Pytest [Active], Automated Frameworks [Active], CI/CD (GitHub Actions, Azure DevOps) [Active], IaC (CloudFormation, Terraform) [Active], Docker \& Git [Active]
+    \item \textbf{Foundational Programming:} Python, SQL [Active], C++, C\#, Unity, HLSL [2024], JavaScript, ReactJS, NodeJS, PHP, MySQL, HTML/CSS [2021]
 \end{itemize}
 
 % ==========================================
 % EXPERIENCE
 % ==========================================
-\section{Experience}
+\resumesection{Experience}
 
 \noindent \textbf{Infosys (Client: British Petroleum)} \hfill Feb 2025 -- Present \\
 \textit{Specialist Programmer L2 | Senior Data Engineer} \hfill Hyderabad, India
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Achieved a 0\% defect injection rate for mission-critical reference data, validated by the elimination of manual SQL checks, by engineering an automated Pytest-driven validation framework within CI/CD pipelines.
     \item Slashed execution time by 30\% for multi-terabyte datasets, benchmarked by pipeline performance metrics, by architecting serverless PySpark ETL pipelines utilizing AWS Glue and Step Functions.
     \item Secured 100\% environment parity across global regions, quantified by consistent deployment success rates, by standardizing infrastructure deployments using AWS CloudFormation.
@@ -58,7 +69,8 @@
 
 \noindent \textbf{Infosys (Client: Telstra)} \hfill Mar 2021 -- Dec 2024 \\
 \textit{Specialist Programmer L1 | Data Engineer} \hfill Hyderabad, India
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Accelerated Azure Data Factory (ADF) pipeline execution time by over 60\% (from 2 hours to 45 minutes), assessed by daily workload runtimes, by optimizing Databricks-to-Synapse reads via pushdown predicates and network bottleneck mitigation.
     \item Orchestrated the seamless processing of TB-scale data, validated by robust source-to-target reconciliation checks, by leading the migration of legacy ingestion workflows to Databricks Runtime 13.3 LTS within a B2B Medallion architecture.
     \item Pioneered guaranteed downstream data integrity, benchmarked by a sustained 0\% defect rate, by building the Write-Audit-Publish (WAP) architecture for enterprise data lakes.
@@ -69,7 +81,8 @@
 
 \noindent \textbf{Infosys} \hfill Nov 2020 -- Feb 2021 \\
 \textit{Digital Specialist Engineer} \hfill Hyderabad, India
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Earned Team MVP recognition for problem-solving, validated by internal performance awards, by designing data-driven solutions leveraging Azure Cloud and PySpark.
     \item Mastered core Big Data technologies, assessed by successful enterprise training completion, by gaining proficiency in Hadoop, Spark, and Hive.
 \end{itemize}
@@ -78,7 +91,8 @@
 
 \noindent \textbf{Developers@Work} \hfill Jan 2018 -- Feb 2021 \\
 \textit{Freelance Software Engineer \& Content Creator} \hfill Remote
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Directed successful software consulting and technical community building (YouTube/Twitch), quantified by the execution of full-stack architectures, by managing diverse client portfolios.
 \end{itemize}
 
@@ -86,18 +100,20 @@
 
 \noindent \textbf{KK Consultancy} \hfill May 2018 -- Feb 2021 \\
 \textit{Full-Stack Developer Intern} \hfill Remote
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Built highly secure full-stack web automation, validated by seamless authentication flows, by developing reusable Auth/AuthZ middleware with JWT and Firebase authentication modules.
 \end{itemize}
 
 % ==========================================
 % TECHNICAL PROJECTS
 % ==========================================
-\section{Technical Projects}
+\resumesection{Technical Projects}
 
 \noindent \textbf{Retail360 Enterprise Lakehouse} \hfill \textit{Databricks, Delta Lake, PySpark} \\
 \textit{Repo: \href{https://github.com/DevelopersWork-Labs/data-engineering-portfolio-2026/tree/main/projects/01_lakehouse}{github.com/DevelopersWork-Labs/data-engineering-portfolio-2026/.../01\_lakehouse}}
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Designed enterprise analytical workloads, validated by successful production readiness, by deploying a Medallion Lakehouse architecture (Bronze/Silver/Gold).
     \item Decreased analytical query latency by $\sim$40\%, benchmarked by query execution, by implementing advanced Z-Ordering and Data Skipping techniques on Delta tables.
     \item Prevented out-of-memory (OOM) errors in high-volume distributed joins, quantified by stable pipeline execution, by engineering Salted Join strategies in PySpark to mitigate data skew.
@@ -108,7 +124,8 @@
 
 \noindent \textbf{Fruit Collector 3D} \hfill \textit{C\#, Unity} \\
 \textit{Repo: \href{https://github.com/DevelopersWork-Labs/Fruit-Collector-3D}{github.com/DevelopersWork-Labs/Fruit-Collector-3D}}
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Boosted rendering performance across Android and Web, benchmarked by continuous item generation metrics, by leveraging Object Pooling.
     \item Engineered highly maintainable codebase, quantified by strict OOP adherence, by utilizing Singleton, Service Locator, and MVC design patterns.
 \end{itemize}
@@ -117,7 +134,8 @@
 
 \noindent \textbf{Eggventure 3D (FPS Simulation)} \hfill \textit{C++, C\#, Unity, HLSL} \\
 \textit{Repo: \href{https://github.com/DevelopersWork-Labs/Eggventure-3D_Mat-2_Outscal}{github.com/DevelopersWork-Labs/Eggventure-3D\_Mat-2\_Outscal}}
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Optimized Garbage Collection (GC) overhead, quantified by stable 60+ FPS projectile management, by developing an Object Pooling system.
     \item System-designed highly scalable game logic, validated by decoupled component interactions, by implementing a complex State Machine AI alongside MVC and Observer design patterns.
 \end{itemize}
@@ -126,7 +144,8 @@
 
 \noindent \textbf{Harmony Keeper 2D} \hfill \textit{C\#, Unity} \\
 \textit{Repo: \href{https://github.com/DevelopersWork-Labs/Harmony-Keeper-2D_Mat-2_Outscal}{github.com/DevelopersWork-Labs/Harmony-Keeper-2D\_Mat-2\_Outscal}}
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Achieved decoupled state tracking, validated by clean separation of concerns, by architecting the core loop using MVC and Observer design patterns.
     \item Streamlined level management, assessed by optimal memory usage during transitions, by utilizing the Singleton pattern.
 \end{itemize}
@@ -134,74 +153,82 @@
 \vspace{2pt}
 
 \noindent \textbf{AAA (Academics Administration Automation)} \hfill \textit{Node.js, Microservices}
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
-    \item System-designed the migration of monolithic student management systems into a highly scalable, decoupled Microservices architecture.
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
+    \item Architected the migration of monolithic student management systems into a highly scalable, decoupled Microservices architecture, aimed at replacing legacy infrastructure.
 \end{itemize}
 
 \vspace{2pt}
 
 \noindent \textbf{Evolved Pattern Matching (Rabin-Karp)} \hfill \textit{Python} \\
 \textit{Repo: \href{https://github.com/thedeveloperswork/Evolved-Pattern-Matching-Rabin-Karp-Algorithm}{github.com/thedeveloperswork/Evolved-Pattern-Matching-Rabin-Karp-Algorithm}}
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
-    \item Eliminated spurious hits, assessed by precise remainder and quotient equivalence, by modifying the traditional Rabin-Karp algorithm.
-    \item Evaluated accelerated pattern matching over huge text sequences, quantified by reduced search latency, by deploying the optimized algorithm in a modular Python driver script.
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
+    \item Eliminated the computation of spurious hits, assessed by precise remainder and quotient equivalence, by modifying the traditional Rabin-Karp algorithm.
+    \item Accelerated pattern matching over huge text sequences, quantified by reduced search latency, by deploying the optimized algorithm in a modular Python driver script.
 \end{itemize}
 
 \vspace{2pt}
 
-\noindent \textbf{Movie Recommendation System} \hfill \textit{Python, ML} \\
+\noindent \textbf{Movie Recommendation System} \hfill \textit{Python, ML (K-Means, Naive-Bayes), Flask} \\
 \textit{Repo: \href{https://github.com/thedeveloperswork/Movie-Recommendation-System-using-Kmeans-and-Navie-Bayes}{github.com/thedeveloperswork/Movie-Recommendation-System-using-Kmeans-and-Navie-Bayes}}
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
-    \item Improved user engagement, validated by the accuracy of content suggestions, by programming a recommendation engine based on user watch history.
-    \item Formulated reliable Naive-Bayes classification, benchmarked by structured training models, by applying K-Means clustering on unsupervised datasets.
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
+    \item Developed a recommendation engine to improve the accuracy of content suggestions, validated by user watch history alignment.
+    \item Transformed unsupervised datasets into structured training models by implementing K-Means clustering, enabling reliable Naive-Bayes classification.
+    \item Deployed a real-time prediction interface, benchmarked by low-latency inference, by packaging the machine learning pipeline into a Flask web application.
 \end{itemize}
 
 \vspace{2pt}
 
 \noindent \textbf{Sparkle Twilight (Auth Framework)} \hfill \textit{NodeJS, ReactJS, Firebase} \\
 \textit{Repo: \href{https://github.com/thedeveloperswork/sparkle-twilight}{github.com/thedeveloperswork/sparkle-twilight}}
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Built highly reusable Auth/AuthZ middleware, validated by secure session management, by integrating JWT and Firebase authentication.
     \item Accelerated cross-project integration, quantified by plug-and-play component usage, by designing scalable React components and a serverless ExpressJS backend.
 \end{itemize}
 
 \vspace{2pt}
 
-\noindent \textbf{Anveshna (Event Management Portal)} \hfill \textit{PHP, MySQL} \\
+\noindent \textbf{Anveshna (Event Management Portal)} \hfill \textit{PHP, MySQL, HTML, CSS, JS} \\
 \textit{Repo: \href{https://github.com/site-anveshana/Web}{github.com/site-anveshana/Web}}
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
-    \item Handled high-volume user registrations, benchmarked by zero data loss during peak sign-ups, by developing a robust MySQL and PHP backend.
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
+    \item Handled high-volume user registrations, benchmarked by zero data loss during peak symposium sign-ups, by developing a robust MySQL and PHP backend.
 \end{itemize}
 
 \vspace{2pt}
 
-\noindent \textbf{Maha Lakshmi Finance} \hfill \textit{PHP, MySQL} \\
+\noindent \textbf{Maha Lakshmi Finance} \hfill \textit{PHP, MySQL, JS, HTML, CSS} \\
 \textit{Repo: \href{https://github.com/MahaLakshmiFinance/Web}{github.com/MahaLakshmiFinance/Web}}
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Secured multi-user financial operations, validated by real-time balance reconciliation workflows, by implementing role-based access control.
-    \item Automated stock tracking, assessed by transaction logging accuracy, by building a dynamic reporting dashboard linked to the MySQL database.
+    \item Automated stock tracking and transaction logging, assessed by reporting accuracy, by building a dynamic reporting dashboard linked directly to the MySQL database.
 \end{itemize}
 
 \vspace{2pt}
 
-\noindent \textbf{Red Ants (Social Community Platform)} \hfill \textit{PHP, MySQL} \\
+\noindent \textbf{Red Ants (Social Community Platform)} \hfill \textit{PHP, MySQL, CSS, JS} \\
 \textit{Repo: \href{https://github.com/Red-Ants/Web}{github.com/Red-Ants/Web}}
-\begin{itemize}[leftmargin=0.25in, itemsep=1pt]
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
     \item Engineered a secure authentication system, quantified by personalized login/logout workflows, featuring role-based access for community members.
-    \item Optimized data storage, validated by efficient member tracking metrics, by designing a normalized MySQL schema.
+    \item Optimized data storage for community interaction, validated by efficient member tracking metrics, by designing a normalized MySQL schema.
 \end{itemize}
 
 % ==========================================
 % EDUCATION \& CERTIFICATIONS
 % ==========================================
-\section{Education \& Certifications}
+\resumesection{Education \& Certifications}
 \noindent \textbf{B.Tech in Computer Science \& Engineering} | Sasi Institute of Technology \& Engineering (JNTUK) \hfill 2016 -- 2020 \\
-\textbf{Training Foundation:} Full-Stack Game Development (Outscal - C++, Unity, MVC) \\
-\textbf{Microsoft:} Azure Data Engineer Associate \\
-\textbf{Google Cloud:} Generative AI Leader \\
-\textbf{AWS:} Certified Solutions Architect Associate SAA-C03 \\
-\textbf{Databricks:} Databricks Certified Data Engineer Prep \\
+\textbf{Microsoft:} Azure Data Engineer Associate (DP-203) [Expires: Jan 2026] \\
+\textbf{Google Cloud:} Generative AI Leader Certification [Expires: Sep 2028] \\
+\textbf{AWS:} Certified Solutions Architect Associate (SAA-C03) \\
+\textbf{Training Foundation:} Full-Stack Game Development (Outscal - C++, Unity, MVC, Memory Management) \\
+\textbf{Data Engineering:} The Complete dbt Bootcamp (Udemy), Databricks Certified Data Engineer Prep, Text Prompt Engineering \& Real World AI Apps (Google) \\
 \textbf{Systems \& Engineering:} Infosys Certified Software Programmer, HackerRank Core Accreditations (SQL, Python, Java, Node, React, JavaScript, REST API) \\
-\textbf{Professional Development:} System Design (GeeksforGeeks), The Complete dbt Bootcamp (Udemy), Text Prompt Engineering \& Real World AI Apps (Google), MongoDB Basics, MongoDB for Javascript Developers
+\textbf{Professional Development:} System Design (GeeksforGeeks), MongoDB Basics, MongoDB for Javascript Developers
 
 \end{document}

@@ -1,15 +1,26 @@
 ---
-description: Generating a strict, ATS-compliant LaTeX resume tailored to specific Job Descriptions.
+description: Generating strict, ATS-compliant vanilla LaTeX resumes from master assets.
 ---
 
-# Resume Architect Instructions
+# Resume Architect Workflow
 
-## Content Relevancy
-- **Ruthless Purging**: If generating for a specific role (e.g., Data Engineer), aggressively eliminate irrelevant skills, previous web/game dev roles, and projects to solely highlight the target title.
-- **Consolidation**: Always merge "Education" and "Certifications" into a single section to maximize vertical space.
+## 🏗️ Pre-flight Cleanup
+- **Purge Artifacts**: Delete Node.js/React artifacts (`package.json`, `package-lock.json`, `dist/`) if the pipeline is purely LaTeX-based.
+- **Clear Builds**: Aggressively remove intermediate LaTeX files (`.aux`, `.log`, `.out`, etc.).
 
-## Strict Formatting Rules (LOCKED-IN)
-- **Base Geometry**: Must use `\documentclass[10pt, letterpaper]{article}`. Do NOT use `\usepackage[T1]{fontenc}` as it skews the parser.
-- **No External Layout Packages**: Emulate standard ATS structures heavily prioritizing built-in LaTeX spacing (`\vspace{4pt}`). Do not use `enumitem`, `titlesec`, or abstract custom macros.
-- **Main Header**: The Name must scale (`\Large` or `\LARGE`) to strictly fit on one line. The target job title must use `\textsf{\textbf{TITLE}}`. Line 1: `Location | Phone | Email`. Line 2: `LinkedIn | GitHub | Portfolio`.
-- **Hyperlinks**: You must define `\hypersetup{hidelinks}` in the preamble. Links in the body must be clean (no `https://`) and styled identically as: `\href{url}{\textit{\underline{clean_url}}}`.
+## 🔐 Strict Formatting (LOCKED-IN)
+- **Base**: Use `\documentclass[10pt, letterpaper]{article}`. No `fontenc`.
+- **Vanilla Layout**: NO `titlesec`, `enumitem`, `bookmark`, or `titlesec`. Follow this exact setup:
+  ```latex
+  \newcommand{\resumesection}[1]{
+    \vspace{8pt}\noindent\textbf{\large\uppercase{#1}}\\\vspace{-8pt}\hrule\vspace{6pt}
+  }
+  \begin{itemize} \setlength{\itemsep}{1pt} \item ... \end{itemize}
+  ```
+- **Header**: Single-line Name (`\Large` or `\LARGE`). Title: `\textsf{\textbf{TITLE}}`.
+- **Links**: `\hypersetup{hidelinks}`. Clean URLs: `\href{url}{\textit{\underline{clean_url}}}`.
+
+## 🔄 Content Alignment
+- **Master vs. Target**: Use `source.tex` as the immutable master vault (character-focused). Use `resume.tex` as the targeted scratchpad for specific roles.
+- **Tailoring**: In `resume.tex`, aggressively purge non-relevant roles/projects. Compress to exactly 1 page for applications.
+- **Consolidation**: Merge "Education" and "Certifications" sections unless space is abundant.
