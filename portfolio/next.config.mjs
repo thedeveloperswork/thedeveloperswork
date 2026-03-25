@@ -1,8 +1,7 @@
-import type { NextConfig } from "next";
-
+/** @type {import('next').NextConfig} */
 const basePath = process.env.BASE_PATH || "";
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   output: "export",
   basePath: basePath,
   images: {
