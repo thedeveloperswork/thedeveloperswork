@@ -2,7 +2,7 @@ name: Deploy Testing
 
 on:
   pull_request:
-    # types: [closed]
+    types: [closed]
     branches:
       - testing
   push:
@@ -14,7 +14,6 @@ permissions:
 
 jobs:
   deploy:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     environment: alpha
     concurrency:
