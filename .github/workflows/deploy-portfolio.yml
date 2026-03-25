@@ -2,7 +2,7 @@ name: Deploy Portfolio
 
 on:
   push:
-    branches: ["master", "testing"]
+    branches: ["master", "testing", "development"]
 
 permissions:
   contents: write
@@ -60,9 +60,12 @@ jobs:
         working-directory: ./portfolio
         run: npm run build
 
-      - name: Deploy to Branch (Production/Testing)
+      - name: Deploy to Branch (Production/Testing/Dev)
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: ${{ github.ref == 'refs/heads/master' && 'gh-pages' || 'gh-pages-alpha' }}
+          branch: >-
+            ${{ github.ref == 'refs/heads/master' && 'gh-pages' || 
+                github.ref == 'refs/heads/testing' && 'gh-pages-alpha' || 
+                'gh-pages-dev' }}
           folder: ./portfolio/out
 
