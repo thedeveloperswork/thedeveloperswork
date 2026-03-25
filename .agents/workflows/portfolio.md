@@ -14,3 +14,9 @@ description: Building a premium, state-of-the-art Next.js (React 19) portfolio w
 - **Scope (No Purging)**: You must showcase the full multidisciplinary background (from Game Dev C++ to PySpark/Databricks). Do not purge older projects.
 - **Gamification**: Condense large bullet lists inside minimal cards. Force explicit user interactions (hover transitions or Lucide-React `<Pin />` buttons) to reveal dense information. Use `.no-scrollbar` for horizontal overflow.
 - **Dynamic Asset Injection**: Safely strip formatting markers (`**`) before React DOM bindings. Inject vendor SVGs (Devicon/Lucide) based on string-matching tech stacks dynamically.
+
+## 🚀 CI/CD & Quality Control
+- **Configuration**: Use `next.config.mjs` (ESM) to ensure compatibility with GitHub Actions `configure-pages`. 
+- **Deployment**: All builds are handled by `deploy-portfolio.yml`.
+- **Zero-Warning Policy**: Enforce `npm run lint -- --max-warnings 0` for all automated builds.
+- **Testing**: Maintain a Vitest suite for all core logic (e.g., parsers, hooks). Use `jsdom` for React component tests.
