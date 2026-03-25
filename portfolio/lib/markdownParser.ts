@@ -135,7 +135,13 @@ export function getProjects(): Project[] {
         const lines = section.split('\n').filter(Boolean);
         if (!lines[0] || !lines[0].startsWith('**Title:**')) return;
 
-        const project: any = { bullets: [] };
+        const project: Project = { 
+            title: '', 
+            technologies: '', 
+            timeline: '', 
+            bullets: [],
+            repository: undefined
+        };
 
         lines.forEach(line => {
             if (line.startsWith('**Title:**')) project.title = line.replace('**Title:**', '').trim();
@@ -148,7 +154,7 @@ export function getProjects(): Project[] {
             else if (line.startsWith('* ')) project.bullets.push(line.replace('* ', '').trim());
         });
 
-        projects.push(project as Project);
+        projects.push(project);
     });
 
     return projects;

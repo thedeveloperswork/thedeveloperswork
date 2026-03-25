@@ -175,13 +175,13 @@ const TimelineView = ({ events, openModal }: { events: TimelineEvent[], openModa
     const [isHovered, setIsHovered] = useState(false);
     const [isInitialized, setIsInitialized] = useState(false);
 
-    // Initial right-align
     useEffect(() => {
         if (scrollRef.current && !isInitialized) {
             const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
             scrollRef.current.scrollLeft = maxScroll;
             scrollPos.current = maxScroll;
-            setIsInitialized(true);
+            const timeout = setTimeout(() => setIsInitialized(true), 0);
+            return () => clearTimeout(timeout);
         }
     }, [events, isInitialized]);
 
@@ -292,10 +292,9 @@ const TimelineView = ({ events, openModal }: { events: TimelineEvent[], openModa
 export default function Experience({ experiences }: { experiences: ExperienceType[] }) {
     const [selectedExp, setSelectedExp] = useState<ExperienceType | null>(null);
 
-    if (!experiences || experiences.length === 0) return null;
-
     const currentYear = new Date().getFullYear().toString();
     const activeExperiences = useMemo(() => {
+        if (!experiences) return [];
         return experiences.filter(exp => {
             const t = exp.dates || "";
             return t.toLowerCase().includes("present") || t.includes(currentYear) || t.includes((parseInt(currentYear) - 1).toString());
@@ -303,6 +302,7 @@ export default function Experience({ experiences }: { experiences: ExperienceTyp
     }, [experiences, currentYear]);
 
     const pastExperiences = useMemo(() => {
+        if (!experiences) return [];
         return experiences.filter(exp => {
             const t = exp.dates || "";
             return !(t.toLowerCase().includes("present") || t.includes(currentYear) || t.includes((parseInt(currentYear) - 1).toString()));
@@ -310,6 +310,8 @@ export default function Experience({ experiences }: { experiences: ExperienceTyp
     }, [experiences, currentYear]);
 
     const pastEvents = useMemo(() => buildEvents(pastExperiences), [pastExperiences]);
+
+    if (!experiences || experiences.length === 0) return null;
 
     return (
         <>

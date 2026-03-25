@@ -1,5 +1,6 @@
 import { Education } from "@/lib/markdownParser";
 import { GraduationCap, Award, BookOpen, Gamepad2, Database, Cloud, Code } from "lucide-react";
+import Image from "next/image";
 
 export default function EducationSection({ education }: { education: Education }) {
     if (!education) return null;
@@ -70,7 +71,7 @@ export default function EducationSection({ education }: { education: Education }
                                     <li key={idx} className="flex items-start text-sm text-gray-300 leading-relaxed font-medium bg-white/5 p-3.5 rounded-xl border border-white/10 hover:bg-white/10 transition-colors shadow-sm">
                                         {logoUrl ? (
                                             <div className="w-8 h-8 rounded bg-white/10 p-1.5 mr-3 shrink-0 flex items-center justify-center">
-                                                <img src={logoUrl} alt="Logo" className="w-full h-full object-contain filter drop-shadow-md" />
+                                                <Image src={logoUrl} alt="Logo" width={32} height={32} className="w-full h-full object-contain filter drop-shadow-md" />
                                             </div>
                                         ) : (
                                             <div className="w-8 h-8 rounded bg-purple-500/10 p-1.5 mr-3 shrink-0 flex items-center justify-center">
