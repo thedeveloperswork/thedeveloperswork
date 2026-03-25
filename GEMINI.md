@@ -46,17 +46,14 @@ All deployments are automated via GitHub Actions and are **only** triggered when
 1. **Guardrail (`validate-testing.yml`)**
    - **Trigger**: Pull Request opened to `testing`.
    - **Checks**: Linting (errors only) and Vitest unit tests.
-   - **Goal**: Prevent broken or poorly typed code from being merged.
 
-2. **Automated Deployment (`deploy-portfolio.yml`)**
-   - **Trigger**: `push` to `master` or `testing`.
-   - **Strategy**: Branch-based deployment.
-     - `master` builds push to **`gh-pages`**.
-     - `testing` builds push to **`gh-pages-alpha`**.
-   - **Note**: Use these branches for Hostinger's Git Auto-Deploy feature.
-   - **Linting**: Strict (`--max-warnings 0`) for `master`.
-
-3. **Manual Development Deployment (`deploy-portfolio-dev.yml`)**
-   - **Trigger**: `workflow_dispatch` (Manual only).
-   - **Target**: Branch-based deployment to **`gh-pages-dev`**.
+2. **Unified Super-Workflow (`deploy-portfolio.yml`)**
+   - **Triggers**: 
+     - **Automated**: `push` to `master` (Prod) or `testing` (Alpha).
+     - **Manual**: `workflow_dispatch` (from any branch).
+   - **Target Mappings**:
+     - `master` $\rightarrow$ **`gh-pages`** (and official GitHub Pages API).
+     - `testing` $\rightarrow$ **`gh-pages-alpha`** (builds with `BASE_PATH: /portfolio`).
+     - Manual/Others $\rightarrow$ **`gh-pages-dev`**.
+   - **Quality**: Strict `npm run lint -- --max-warnings 0` for all builds.
 

@@ -57,6 +57,8 @@ jobs:
 
       - name: Build with Next.js
         working-directory: ./portfolio
+        env:
+          BASE_PATH: ${{ github.ref == 'refs/heads/testing' && '/portfolio' || '' }}
         run: npm run build
 
       - name: Upload Production Artifact
