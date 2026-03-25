@@ -1,0 +1,51 @@
+name: Deploy Portfolio (Manual Dev)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "pages-deploy-dev-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+          cache-dependency-path: "./portfolio/package-lock.json"
+
+      - name: Opt-in to Node.js 24 for Actions
+        run: echo "FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true" >> $GITHUB_ENV
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            portfolio/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('portfolio/package-lock.json') }}-${{ hashFiles('portfolio/**/*.[jt]s', 'portfolio/**/*.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('portfolio/package-lock.json') }}-
+
+      - name: Install dependencies
+        working-directory: ./portfolio
+        run: npm ci
+
+      - name: Build with Next.js
+        working-directory: ./portfolio
+        run: npm run build
+
+      - name: Deploy to Dev Branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages-dev
+          folder: ./portfolio/out

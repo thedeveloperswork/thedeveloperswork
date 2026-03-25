@@ -45,24 +45,25 @@ All deployments are automated via GitHub Actions and are **only** triggered when
 
 1. **Guardrail (`validate-testing.yml`)**
    - **Trigger**: Pull Request opened to `testing`.
-   - **Checks**: Linting and basic validation (Next.js build checks).
-   - **Goal**: Prevent broken code from being merged.
+   - **Checks**: Linting (errors only) and Vitest unit tests.
+   - **Goal**: Prevent broken or poorly typed code from being merged.
 
-2. **Testing Environment (`testing` branch)**
-   - **Trigger**: Merge to `testing`.
-   - **Environment**: `alpha` (GitHub Environment).
-   - **Node.js Runtime**: `v24` (LTS/Modern).
-   - **Deployment**: Automatic build and deployment to the `gh-pages-alpha` branch.
-   - **Linting**: Standard `npm run lint` (warnings allowed).
-   - **Caching**: Implements `actions/cache` for `.next/cache` and `~/.npm`.
+2. **Automated Deployment (`deploy-portfolio.yml`)**
+   - **Trigger**: `push` to `master` or `testing`.
+   - **Environment**: 
+     - `github-pages` for Production (`master`).
+     - `alpha` for Testing (`testing`).
+   - **Strategy**: 
+     - **Production**: Official GitHub Pages API deployment (artifact-based).
+     - **Testing**: Branch-based deployment to `gh-pages-alpha`.
+   - **Linting**: Strict (`--max-warnings 0`) for `master`; standard for `testing`.
 
-   - **Assets**: Next.js `basePath` is dynamically derived from the remote deployment directory.
+3. **Manual Development Deployment (`deploy-portfolio-dev.yml`)**
+   - **Trigger**: `workflow_dispatch` (Manual only).
+   - **Target**: Branch-based deployment to `gh-pages-dev`.
+   - **Purpose**: Ad-hoc testing from any experimental branch.
 
-3. **Production Environment (`master` branch)**
-   - **Trigger**: Merge to `master`.
-   - **Deployment**: Automatic build and deployment to GitHub Pages (`gh-pages`).
-   - **Linting**: Strict `npm run lint -- --max-warnings 0` (zero warnings allowed).
-   - **Assets**: Deployed to the repository's root URL path.
+
 
 
 4. **Resume Pipeline**

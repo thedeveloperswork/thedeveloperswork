@@ -1,0 +1,89 @@
+name: Deploy Portfolio
+
+on:
+  push:
+    branches: ["master", "testing"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-deploy-${{ github.ref }}"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+          cache-dependency-path: "./portfolio/package-lock.json"
+
+      - name: Opt-in to Node.js 24 for Actions
+        run: echo "FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true" >> $GITHUB_ENV
+
+      - name: Setup Pages (Production Only)
+        if: github.ref == 'refs/heads/master'
+        uses: actions/configure-pages@v5
+        with:
+          static_site_generator: next
+          generator_config_file: portfolio/next.config.ts
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            portfolio/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('portfolio/package-lock.json') }}-${{ hashFiles('portfolio/**/*.[jt]s', 'portfolio/**/*.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('portfolio/package-lock.json') }}-
+
+      - name: Install dependencies
+        working-directory: ./portfolio
+        run: npm ci
+
+      - name: Run Lint
+        working-directory: ./portfolio
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/master" ]; then
+            npm run lint -- --max-warnings 0
+          else
+            npm run lint
+          fi
+
+      - name: Build with Next.js
+        working-directory: ./portfolio
+        run: npm run build
+
+      - name: Upload Production Artifact
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./portfolio/out
+
+      - name: Deploy to Alpha Branch (Testing Only)
+        if: github.ref == 'refs/heads/testing'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages-alpha
+          folder: ./portfolio/out
+
+  deploy-production:
+    if: github.ref == 'refs/heads/master'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
