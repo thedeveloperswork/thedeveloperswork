@@ -24,9 +24,6 @@ jobs:
           cache: "npm"
           cache-dependency-path: "./portfolio/package-lock.json"
 
-      - name: Opt-in to Node.js 24 for Actions
-        run: echo "FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true" >> $GITHUB_ENV
-
       - name: Restore cache
         uses: actions/cache@v4
         with:

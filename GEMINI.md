@@ -50,21 +50,13 @@ All deployments are automated via GitHub Actions and are **only** triggered when
 
 2. **Automated Deployment (`deploy-portfolio.yml`)**
    - **Trigger**: `push` to `master` or `testing`.
-   - **Environment**: 
-     - `github-pages` for Production (`master`).
-     - `alpha` for Testing (`testing`).
-   - **Strategy**: 
-     - **Production**: Official GitHub Pages API deployment (artifact-based).
-     - **Testing**: Branch-based deployment to `gh-pages-alpha`.
-   - **Linting**: Strict (`--max-warnings 0`) for `master`; standard for `testing`.
+   - **Strategy**: Branch-based deployment.
+     - `master` builds push to **`gh-pages`**.
+     - `testing` builds push to **`gh-pages-alpha`**.
+   - **Note**: Use these branches for Hostinger's Git Auto-Deploy feature.
+   - **Linting**: Strict (`--max-warnings 0`) for `master`.
 
 3. **Manual Development Deployment (`deploy-portfolio-dev.yml`)**
    - **Trigger**: `workflow_dispatch` (Manual only).
-   - **Target**: Branch-based deployment to `gh-pages-dev`.
-   - **Purpose**: Ad-hoc testing from any experimental branch.
+   - **Target**: Branch-based deployment to **`gh-pages-dev`**.
 
-
-
-
-4. **Resume Pipeline**
-   - **Status**: Manual generation. PDF compilation is removed from the automated CI/CD pipeline and should be handled locally using `pdflatex` to ensure exact tailoring before commit.

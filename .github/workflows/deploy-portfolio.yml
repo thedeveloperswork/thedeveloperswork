@@ -27,9 +27,6 @@ jobs:
           cache: "npm"
           cache-dependency-path: "./portfolio/package-lock.json"
 
-      - name: Opt-in to Node.js 24 for Actions
-        run: echo "FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true" >> $GITHUB_ENV
-
       - name: Setup Pages (Production Only)
         if: github.ref == 'refs/heads/master'
         uses: actions/configure-pages@v5
@@ -63,27 +60,9 @@ jobs:
         working-directory: ./portfolio
         run: npm run build
 
-      - name: Upload Production Artifact
-        if: github.ref == 'refs/heads/master'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./portfolio/out
-
-      - name: Deploy to Alpha Branch (Testing Only)
-        if: github.ref == 'refs/heads/testing'
+      - name: Deploy to Branch (Production/Testing)
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages-alpha
+          branch: ${{ github.ref == 'refs/heads/master' && 'gh-pages' || 'gh-pages-alpha' }}
           folder: ./portfolio/out
 
-  deploy-production:
-    if: github.ref == 'refs/heads/master'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
