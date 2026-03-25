@@ -45,25 +45,18 @@ All deployments are automated via GitHub Actions and are **only** triggered when
 
 1. **Guardrail (`validate-testing.yml`)**
    - **Trigger**: Pull Request opened to `testing`.
-   - **Checks**: Linting and basic validation (Next.js build checks).
-   - **Goal**: Prevent broken code from being merged.
+   - **Checks**: Linting (errors only) and Vitest unit tests.
+   - **Goal**: Prevent broken or poorly typed code from being merged.
 
-2. **Testing Environment (`testing` branch)**
-   - **Trigger**: Merge to `testing`.
-   - **Environment**: `alpha` (GitHub Environment).
-   - **Deployment**: Automatic build and SFTP deployment to the remote testing server.
-   - **Linting**: Standard `npm run lint` (warnings allowed).
-   - **Required Secrets**: `SFTP_SERVER`, `SFTP_PASSWORD`.
-   - **Required Variables**: `SFTP_USERNAME`, `SFTP_REMOTE_PATH`.
-   - **Caching**: Implements `actions/cache` for `.next/cache` and `~/.npm`.
-   - **Assets**: Next.js `basePath` is dynamically derived from the remote deployment directory.
+2. **Automated Deployment (`deploy-portfolio.yml`)**
+   - **Trigger**: `push` to `master` or `testing`.
+   - **Strategy**: Branch-based deployment.
+     - `master` builds push to **`gh-pages`**.
+     - `testing` builds push to **`gh-pages-alpha`**.
+   - **Note**: Use these branches for Hostinger's Git Auto-Deploy feature.
+   - **Linting**: Strict (`--max-warnings 0`) for `master`.
 
-3. **Production Environment (`master` branch)**
-   - **Trigger**: Merge to `master`.
-   - **Deployment**: Automatic build and deployment to GitHub Pages (`gh-pages`).
-   - **Linting**: Strict `npm run lint -- --max-warnings 0` (zero warnings allowed).
-   - **Assets**: Deployed to the repository's root URL path.
+3. **Manual Development Deployment (`deploy-portfolio-dev.yml`)**
+   - **Trigger**: `workflow_dispatch` (Manual only).
+   - **Target**: Branch-based deployment to **`gh-pages-dev`**.
 
-
-4. **Resume Pipeline**
-   - **Status**: Manual generation. PDF compilation is removed from the automated CI/CD pipeline and should be handled locally using `pdflatex` to ensure exact tailoring before commit.
