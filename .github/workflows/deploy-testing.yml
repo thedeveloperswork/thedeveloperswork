@@ -14,6 +14,7 @@ permissions:
 
 jobs:
   deploy:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
     environment: alpha
     concurrency:
@@ -49,24 +50,13 @@ jobs:
       - name: Build Portfolio
         working-directory: ./portfolio
         env:
-          # Derive BASE_PATH from the last segment of the SFTP_REMOTE_PATH
-          # Note: If deploying to root, this logic might need adjustment or a dedicated secret.
-          BASE_PATH: /${{ github.head_ref || 'testing' }} 
+          # Use standard / for alpha branch deployment on GH Pages if it's the root 
+          BASE_PATH: ""
         run: |
-          # Use the environment variable if you want to override based on server subfolders
-          # For example, if SFTP_REMOTE_PATH is /var/www/testing, BASE_PATH should be /testing
-          REMOTE_PATH="${{ vars.SFTP_REMOTE_PATH }}"
-          DIR_NAME=$(basename "$REMOTE_PATH")
-          export BASE_PATH="/$DIR_NAME"
           npm run build
 
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: Deploy to GitHub Branch (Alpha)
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          server: ${{ secrets.SFTP_SERVER }}
-          username: ${{ vars.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port: ${{ secrets.SFTP_PORT }}
-          local_path: './portfolio/out/*'
-          remote_path: ${{ vars.SFTP_REMOTE_PATH }}
-          delete_remote_files: true
+          branch: gh-pages-alpha
+          folder: ./portfolio/out

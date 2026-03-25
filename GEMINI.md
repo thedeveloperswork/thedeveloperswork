@@ -52,12 +52,10 @@ All deployments are automated via GitHub Actions and are **only** triggered when
    - **Trigger**: Merge to `testing`.
    - **Environment**: `alpha` (GitHub Environment).
    - **Node.js Runtime**: `v24` (LTS/Modern).
-   - **Deployment**: Automatic build and SFTP deployment to the remote testing server.
-
+   - **Deployment**: Automatic build and deployment to the `gh-pages-alpha` branch.
    - **Linting**: Standard `npm run lint` (warnings allowed).
-   - **Required Secrets**: `SFTP_SERVER`, `SFTP_PASSWORD`.
-   - **Required Variables**: `SFTP_USERNAME`, `SFTP_REMOTE_PATH`.
    - **Caching**: Implements `actions/cache` for `.next/cache` and `~/.npm`.
+
    - **Assets**: Next.js `basePath` is dynamically derived from the remote deployment directory.
 
 3. **Production Environment (`master` branch)**
