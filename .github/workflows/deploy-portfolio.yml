@@ -49,23 +49,36 @@ jobs:
 
       - name: Run Lint
         working-directory: ./portfolio
-        run: |
-          if [ "${{ github.ref }}" = "refs/heads/master" ]; then
-            npm run lint -- --max-warnings 0
-          else
-            npm run lint
-          fi
+        run: npm run lint --max-warnings 0
 
       - name: Build with Next.js
         working-directory: ./portfolio
         run: npm run build
 
-      - name: Deploy to Branch (Production/Testing/Dev)
+      - name: Upload Production Artifact
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./portfolio/out
+
+      - name: Deploy to Branch (Build Persistence)
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: >-
-            ${{ github.ref == 'refs/heads/master' && 'gh-pages' || 
-                github.ref == 'refs/heads/testing' && 'gh-pages-alpha' || 
+            ${{ github.ref == 'refs/heads/master' && 'gh-pages' ||
+                github.ref == 'refs/heads/testing' && 'gh-pages-alpha' ||
                 'gh-pages-dev' }}
           folder: ./portfolio/out
+
+  deploy:
+    if: github.ref == 'refs/heads/master'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
