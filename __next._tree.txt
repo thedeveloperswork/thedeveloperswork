@@ -1,5 +1,5 @@
-:HL["/_next/static/chunks/0e51p7gfrayyw.css","style"]
-:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/thedeveloperswork/_next/static/chunks/0e51p7gfrayyw.css","style"]
+:HL["/thedeveloperswork/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["https://cdn.simpleicons.org/googlechrome/0EA5E9","image"]
 :HL["https://cdn.simpleicons.org/github/ffffff","image"]
 :HL["https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg","image"]
@@ -13,4 +13,4 @@
 :HL["https://cdn.simpleicons.org/instagram/E4405F","image"]
 :HL["https://cdn.simpleicons.org/buymeacoffee/FFDD00","image"]
 :HL["https://cdn.simpleicons.org/patreon/FF424D","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"MtkXIkBZhKJmcitL_-syj"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"-Ee4LvQUYrPVE-qciNStF"}
