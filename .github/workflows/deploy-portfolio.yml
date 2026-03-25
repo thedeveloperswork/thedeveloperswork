@@ -28,7 +28,7 @@ jobs:
           cache-dependency-path: "./portfolio/package-lock.json"
 
       - name: Setup Pages (Production Only)
-        if: github.ref == 'refs/heads/master'
+        # if: github.ref == 'refs/heads/master'
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
@@ -71,7 +71,7 @@ jobs:
           folder: ./portfolio/out
 
   deploy:
-    if: github.ref == 'refs/heads/master'
+    # if: github.ref == 'refs/heads/master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
